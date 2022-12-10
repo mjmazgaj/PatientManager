@@ -68,6 +68,7 @@
             this.btnMedicines.TabIndex = 9;
             this.btnMedicines.Text = "Leki";
             this.btnMedicines.UseVisualStyleBackColor = true;
+            this.btnMedicines.Click += new System.EventHandler(this.btnMedicines_Click);
             // 
             // btnPatients
             // 
