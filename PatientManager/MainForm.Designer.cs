@@ -36,6 +36,7 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnTreatment = new System.Windows.Forms.Button();
+            this.medicineEditPage1 = new PatientManager.Control.MedicineEditPage();
             this.SuspendLayout();
             // 
             // medicineListPage1
@@ -91,6 +92,7 @@
             this.btnAdd.TabIndex = 9;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
@@ -102,6 +104,7 @@
             this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Edytuj";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
@@ -126,12 +129,21 @@
             this.btnTreatment.Text = "Kuracje";
             this.btnTreatment.UseVisualStyleBackColor = true;
             // 
+            // medicineEditPage1
+            // 
+            this.medicineEditPage1.Location = new System.Drawing.Point(12, 12);
+            this.medicineEditPage1.Name = "medicineEditPage1";
+            this.medicineEditPage1.Size = new System.Drawing.Size(600, 445);
+            this.medicineEditPage1.TabIndex = 10;
+            this.medicineEditPage1.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(782, 453);
+            this.Controls.Add(this.medicineEditPage1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -159,5 +171,6 @@
         private Button btnEdit;
         private Button btnDelete;
         private Button btnTreatment;
+        private Control.MedicineEditPage medicineEditPage1;
     }
 }

@@ -34,9 +34,24 @@ namespace PatientManager
             EnableUserControl(medicineListPage1);
         }
         
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            medicineEditPage1.isEditMode = false;
+            EnableUserControl(medicineEditPage1);
+            medicineEditPage1.SetUp(medicineListPage1.medicineModel);
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            medicineEditPage1.isEditMode = true;
+            EnableUserControl(medicineEditPage1);
+            medicineEditPage1.SetUp(medicineListPage1.medicineModel);
+        }
+
         public void DisableAllUserControls()
         {
             medicineListPage1.Visible = false;
+            medicineEditPage1.Visible = false;
         }
 
         public void EnableUserControl(UserControl userControl)
