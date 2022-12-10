@@ -1,10 +1,15 @@
+using PatientManager.Core;
+using PatientManager.Data.Services;
+
 namespace PatientManager
 {
     public partial class MainForm : Form
     {
+        private MedicineDataService _medicineDataService;
         public MainForm()
         {
             InitializeComponent();
+            _medicineDataService = new MedicineDataService();
         }
 
         private void btnMedicines_Click(object sender, EventArgs e)
@@ -12,6 +17,23 @@ namespace PatientManager
             EnableUserControl(medicineListPage1);
         }
 
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            MedicineModel medicineModel = _medicineDataService.GetById(medicineListPage1.CurrentMedicineId);
+            
+            string dialogTitle = "Usuwanie";
+            string dialogQuestion = $"Czy na pewno chcesz usunac pozycje \"{medicineModel.Name}\"?";
+            var result = MessageBox.Show(dialogQuestion, dialogTitle, MessageBoxButtons.OKCancel);
+
+            if (result == DialogResult.OK)
+            {
+                _medicineDataService.Delete(medicineModel.Id);
+                this.Controls.Clear();
+                this.InitializeComponent();
+            }
+            EnableUserControl(medicineListPage1);
+        }
+        
         public void DisableAllUserControls()
         {
             medicineListPage1.Visible = false;
