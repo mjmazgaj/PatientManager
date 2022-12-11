@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.medicineListPage1 = new PatientManager.Control.MedicineListPage();
+            this.modelsListPage1 = new PatientManager.Control.ModelsListPage();
             this.btnCalendar = new System.Windows.Forms.Button();
             this.btnMedicines = new System.Windows.Forms.Button();
             this.btnPatients = new System.Windows.Forms.Button();
@@ -39,14 +39,14 @@
             this.medicineEditPage1 = new PatientManager.Control.MedicineEditPage();
             this.SuspendLayout();
             // 
-            // medicineListPage1
+            // modelsListPage1
             // 
-            this.medicineListPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.medicineListPage1.Location = new System.Drawing.Point(12, 12);
-            this.medicineListPage1.Name = "medicineListPage1";
-            this.medicineListPage1.Size = new System.Drawing.Size(600, 445);
-            this.medicineListPage1.TabIndex = 0;
-            this.medicineListPage1.Visible = false;
+            this.modelsListPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.modelsListPage1.Location = new System.Drawing.Point(12, 12);
+            this.modelsListPage1.Name = "modelsListPage1";
+            this.modelsListPage1.Size = new System.Drawing.Size(600, 445);
+            this.modelsListPage1.TabIndex = 0;
+            this.modelsListPage1.Visible = false;
             // 
             // btnCalendar
             // 
@@ -151,7 +151,7 @@
             this.Controls.Add(this.btnPatients);
             this.Controls.Add(this.btnMedicines);
             this.Controls.Add(this.btnCalendar);
-            this.Controls.Add(this.medicineListPage1);
+            this.Controls.Add(this.modelsListPage1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -163,7 +163,7 @@
 
         #endregion
 
-        private Control.MedicineListPage medicineListPage1;
+        private Control.ModelsListPage modelsListPage1;
         private Button btnCalendar;
         private Button btnMedicines;
         private Button btnPatients;

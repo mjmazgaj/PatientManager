@@ -1,6 +1,6 @@
 ﻿namespace PatientManager.Control
 {
-    partial class MedicineListPage
+    partial class ModelsListPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.dgvMedicines = new System.Windows.Forms.DataGridView();
+            this.dgvModels = new System.Windows.Forms.DataGridView();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.lblPatients = new System.Windows.Forms.Label();
             this.cbPatients = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicines)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModels)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvMedicines
+            // dgvModels
             // 
-            this.dgvMedicines.AllowUserToAddRows = false;
-            this.dgvMedicines.AllowUserToDeleteRows = false;
-            this.dgvMedicines.AllowUserToResizeColumns = false;
-            this.dgvMedicines.AllowUserToResizeRows = false;
-            this.dgvMedicines.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvModels.AllowUserToAddRows = false;
+            this.dgvModels.AllowUserToDeleteRows = false;
+            this.dgvModels.AllowUserToResizeColumns = false;
+            this.dgvModels.AllowUserToResizeRows = false;
+            this.dgvModels.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -52,26 +52,26 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMedicines.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvMedicines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedicines.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgvMedicines.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvMedicines.EnableHeadersVisualStyles = false;
-            this.dgvMedicines.Location = new System.Drawing.Point(0, 0);
-            this.dgvMedicines.Margin = new System.Windows.Forms.Padding(0);
-            this.dgvMedicines.Name = "dgvMedicines";
-            this.dgvMedicines.RowHeadersVisible = false;
-            this.dgvMedicines.RowHeadersWidth = 51;
-            this.dgvMedicines.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.dgvMedicines.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvMedicines.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
-            this.dgvMedicines.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4);
-            this.dgvMedicines.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Control;
-            this.dgvMedicines.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvMedicines.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicines.Size = new System.Drawing.Size(600, 389);
-            this.dgvMedicines.TabIndex = 0;
-            this.dgvMedicines.SelectionChanged += new System.EventHandler(this.dgvMedicines_SelectionChanged);
+            this.dgvModels.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvModels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvModels.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvModels.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvModels.EnableHeadersVisualStyles = false;
+            this.dgvModels.Location = new System.Drawing.Point(0, 0);
+            this.dgvModels.Margin = new System.Windows.Forms.Padding(0);
+            this.dgvModels.Name = "dgvModels";
+            this.dgvModels.RowHeadersVisible = false;
+            this.dgvModels.RowHeadersWidth = 51;
+            this.dgvModels.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.dgvModels.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvModels.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.White;
+            this.dgvModels.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4);
+            this.dgvModels.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Control;
+            this.dgvModels.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvModels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvModels.Size = new System.Drawing.Size(600, 389);
+            this.dgvModels.TabIndex = 0;
+            this.dgvModels.SelectionChanged += new System.EventHandler(this.dgvModels_SelectionChanged);
             // 
             // lblName
             // 
@@ -109,7 +109,7 @@
             this.cbPatients.Size = new System.Drawing.Size(215, 28);
             this.cbPatients.TabIndex = 3;
             // 
-            // MedicineListPage
+            // ModelsListPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -118,10 +118,10 @@
             this.Controls.Add(this.lblPatients);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.dgvMedicines);
-            this.Name = "MedicineListPage";
+            this.Controls.Add(this.dgvModels);
+            this.Name = "ModelsListPage";
             this.Size = new System.Drawing.Size(600, 445);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicines)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModels)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,7 +129,7 @@
 
         #endregion
 
-        private DataGridView dgvMedicines;
+        private DataGridView dgvModels;
         private Label lblName;
         private TextBox txtName;
         private Label lblPatients;
