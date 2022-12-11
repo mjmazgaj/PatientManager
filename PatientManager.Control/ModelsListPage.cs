@@ -106,15 +106,15 @@ namespace PatientManager.Control
                 {
                     case FileNameType.Medicine:
                         medicineModel = _medicineData.GetById(CurrentModelId);
-                        txtName.Text = medicineModel.Name;
+                        txtName.Text = medicineModel?.Name;
 
-                        bindingSource.DataSource = medicineModel.Patients;
+                        bindingSource.DataSource = medicineModel?.Patients;
                         break;
                     case FileNameType.Patient:
                         patientModel = _patientData.GetById(CurrentModelId);
-                        txtName.Text = patientModel.Name;
+                        txtName.Text = patientModel?.Name;
 
-                        bindingSource.DataSource = patientModel.Treatments;
+                        bindingSource.DataSource = patientModel?.Treatments;
                         break;
                     default:
                         break;
