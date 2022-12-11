@@ -42,12 +42,14 @@ namespace PatientManager.Data.Services
         {
             return _fileData.GetJsonObjects<PatientJsonModel>(FileNameType.Patient)
                             .Select(x => PatientModelConvert.ToPatientModel(x))
+                            .OrderBy(x => x.Id)
                             .ToList();
         }
 
         public PatientModel GetById(int id)
         {
             var jsonModel = _fileData.GetJsonObjects<PatientJsonModel>(FileNameType.Patient)
+                                     .OrderBy(x => x.Id)
                                      .FirstOrDefault(x => x.Id == id);
 
             return PatientModelConvert.ToPatientModel(jsonModel);
