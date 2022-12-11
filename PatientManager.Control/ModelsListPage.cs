@@ -56,10 +56,6 @@ namespace PatientManager.Control
             {
                 bindingSource1.DataSource = _medicineData.GetAll();
             }
-            else
-            {
-                bindingSource1.DataSource = new List<MedicineModel>() { new() { Name = "Brak" } };
-            }
 
             dgvModels.DataSource = bindingSource1.DataSource;
             dgvModels.Columns["Id"].DisplayIndex = 0;
@@ -83,10 +79,6 @@ namespace PatientManager.Control
             if (_medicineData?.GetAll() != null)
             {
                 bindingSource1.DataSource = _patientData.GetAll();
-            }
-            else
-            {
-                bindingSource1.DataSource = new List<PatientModel>() { new() { Name = "Brak" } };
             }
 
             dgvModels.DataSource = bindingSource1.DataSource;
