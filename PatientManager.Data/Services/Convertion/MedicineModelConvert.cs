@@ -9,10 +9,12 @@ namespace PatientManager.Data
         //MedicineJsonModel has only Patient's Ids, MedicineModel should have list of PatientModels.
         public static MedicineModel ToMedicineModel(MedicineJsonModel jsonModel)
         {
-            var medicineModel = new MedicineModel();
+            MedicineModel medicineModel = null;
 
-            if (medicineModel != null && jsonModel != null)
+            if (jsonModel != null)
             {
+                medicineModel = new MedicineModel();
+
                 medicineModel.Id = jsonModel.Id;
                 medicineModel.Name = jsonModel.Name;
                 medicineModel.Patients = jsonModel.PatientIds;
@@ -24,10 +26,12 @@ namespace PatientManager.Data
 
         public static MedicineJsonModel ToMedicineJsonModel(MedicineModel medicineModel)
         {
-            var medicineJsonModel = new MedicineJsonModel();
+            MedicineJsonModel medicineJsonModel = null;
 
-            if (medicineJsonModel != null && medicineModel != null)
+            if (medicineModel != null)
             {
+                medicineJsonModel = new MedicineJsonModel();
+
                 medicineJsonModel.Id = medicineModel.Id;
                 medicineJsonModel.Name = medicineModel.Name;
                 medicineJsonModel.PatientIds = medicineModel.Patients;

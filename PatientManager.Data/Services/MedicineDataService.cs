@@ -42,12 +42,14 @@ namespace PatientManager.Data.Services
         {
             return _fileData.GetJsonObjects<MedicineJsonModel>(FileNameType.Medicine)
                             .Select(x => MedicineModelConvert.ToMedicineModel(x))
+                            .OrderBy(x => x.Id)
                             .ToList();
         }
 
         public MedicineModel GetById(int id)
         {
             var jsonModel = _fileData.GetJsonObjects<MedicineJsonModel>(FileNameType.Medicine)
+                                     .OrderBy(x => x.Id)
                                      .FirstOrDefault(x => x.Id == id);
 
             return MedicineModelConvert.ToMedicineModel(jsonModel);
@@ -64,6 +66,12 @@ namespace PatientManager.Data.Services
         public void Update(MedicineModel model)
         {
             _fileData.EditJsonMedicine(MedicineModelConvert.ToMedicineJsonModel(model));
+        }
+
+        public int GetNextId()
+        {
+            var medicines = GetAll()?.OrderByDescending(x => x.Id).FirstOrDefault()?.Id;
+            return medicines.HasValue ? medicines.Value + 1 : 1;
         }
     }
 }

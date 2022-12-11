@@ -15,20 +15,20 @@ using PatientMenager.Data;
 
 namespace PatientManager.Control
 {
-    public partial class MedicineEditPage : UserControl
+    public partial class PatientEditPage : UserControl
     {
-        private MedicineDataService _medicineData;
+        private PatientDataService _patientData;
         public bool isEditMode { get; set; }
-        public MedicineEditPage()
+        public PatientEditPage()
         {
             InitializeComponent();
-            _medicineData = new MedicineDataService();
+            _patientData = new PatientDataService();
         }
 
-        public void SetUp(MedicineModel medicineModel)
+        public void SetUp(PatientModel PatientModel)
         {
             DisplayEditMode();
-            PopulateTextBoxesWithMedicineData(medicineModel);
+            PopulateTextBoxesWithPatientData(PatientModel);
         }
 
         private void DisplayEditMode()
@@ -40,42 +40,42 @@ namespace PatientManager.Control
             lblPatients.Visible = isEditMode;
         }
 
-        private void PopulateTextBoxesWithMedicineData(MedicineModel medicineModel)
+        private void PopulateTextBoxesWithPatientData(PatientModel PatientModel)
         {
             if (isEditMode)
             {
-                txtId.Text = medicineModel.Id.ToString();
-                txtName.Text = medicineModel.Name;
-                txtPatients.Text = medicineModel.NumberOfPatients.ToString();
-                txtDescription.Text = medicineModel.Description;
+                txtId.Text = PatientModel.Id.ToString();
+                txtName.Text = PatientModel.Name;
+                txtPatients.Text = PatientModel.NumberOfTreatments.ToString();
+                txtDescription.Text = PatientModel.Description;
             }
             else
-                txtId.Text = medicineModel.Id.ToString();
+                txtId.Text = PatientModel.Id.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (isEditMode)
             {
-                MedicineModel medicineModel = _medicineData.GetById(Convert.ToInt32(txtId.Text));
-                medicineModel.Name = txtName.Text;
-                medicineModel.Description = txtDescription.Text;
+                PatientModel PatientModel = _patientData.GetById(Convert.ToInt32(txtId.Text));
+                PatientModel.Name = txtName.Text;
+                PatientModel.Description = txtDescription.Text;
 
-                _medicineData.Update(medicineModel);
+                _patientData.Update(PatientModel);
             }
             else
             {
-                MedicineModel medicineModel = new MedicineModel();
-                medicineModel.Id = Convert.ToInt32(txtId.Text);
-                medicineModel.Name = txtName.Text;
-                medicineModel.Description = txtDescription.Text;
+                PatientModel PatientModel = new PatientModel();
+                PatientModel.Id = Convert.ToInt32(txtId.Text);
+                PatientModel.Name = txtName.Text;
+                PatientModel.Description = txtDescription.Text;
 
-                _medicineData.Add(medicineModel);
+                _patientData.Add(PatientModel);
             }
 
             ResetListPage();
 
-            UserControlVisibility("medicineEditPage1", false);
+            UserControlVisibility("patientEditPage1", false);
             UserControlVisibility("modelsListPage1", true);
         }
 
@@ -91,7 +91,7 @@ namespace PatientManager.Control
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            UserControlVisibility("medicineEditPage1", false);
+            UserControlVisibility("patientEditPage1", false);
             UserControlVisibility("modelsListPage1", true);
         }
 
@@ -99,9 +99,9 @@ namespace PatientManager.Control
         {
             var form = Application.OpenForms["MainForm"];
             var userControl = (ModelsListPage)form.Controls.Find("modelsListPage1", true).FirstOrDefault();
-            
+
             if (userControl != null)
-                userControl.Reset(FileNameType.Medicine);
+                userControl.Reset(FileNameType.Patient);
         }
     }
 }

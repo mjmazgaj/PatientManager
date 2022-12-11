@@ -32,8 +32,8 @@
             this.dgvModels = new System.Windows.Forms.DataGridView();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.lblPatients = new System.Windows.Forms.Label();
-            this.cbPatients = new System.Windows.Forms.ComboBox();
+            this.lblModels = new System.Windows.Forms.Label();
+            this.cbModels = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvModels)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,32 +90,32 @@
             this.txtName.Size = new System.Drawing.Size(201, 27);
             this.txtName.TabIndex = 2;
             // 
-            // lblPatients
+            // lblModels
             // 
-            this.lblPatients.AutoSize = true;
-            this.lblPatients.Location = new System.Drawing.Point(298, 412);
-            this.lblPatients.Name = "lblPatients";
-            this.lblPatients.Size = new System.Drawing.Size(62, 20);
-            this.lblPatients.TabIndex = 1;
-            this.lblPatients.Text = "Pacjenci";
+            this.lblModels.AutoSize = true;
+            this.lblModels.Location = new System.Drawing.Point(298, 412);
+            this.lblModels.Name = "lblModels";
+            this.lblModels.Size = new System.Drawing.Size(62, 20);
+            this.lblModels.TabIndex = 1;
+            this.lblModels.Text = "Pacjenci";
             // 
-            // cbPatients
+            // cbModels
             // 
-            this.cbPatients.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cbPatients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPatients.FormattingEnabled = true;
-            this.cbPatients.Location = new System.Drawing.Point(366, 408);
-            this.cbPatients.Name = "cbPatients";
-            this.cbPatients.Size = new System.Drawing.Size(215, 28);
-            this.cbPatients.TabIndex = 3;
+            this.cbModels.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cbModels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbModels.FormattingEnabled = true;
+            this.cbModels.Location = new System.Drawing.Point(366, 408);
+            this.cbModels.Name = "cbModels";
+            this.cbModels.Size = new System.Drawing.Size(215, 28);
+            this.cbModels.TabIndex = 3;
             // 
             // ModelsListPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.cbPatients);
-            this.Controls.Add(this.lblPatients);
+            this.Controls.Add(this.cbModels);
+            this.Controls.Add(this.lblModels);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.dgvModels);
@@ -132,7 +132,7 @@
         private DataGridView dgvModels;
         private Label lblName;
         private TextBox txtName;
-        private Label lblPatients;
-        private ComboBox cbPatients;
+        private Label lblModels;
+        private ComboBox cbModels;
     }
 }

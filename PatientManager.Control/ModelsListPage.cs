@@ -17,66 +17,116 @@ namespace PatientManager.Control
     public partial class ModelsListPage : UserControl
     {
         private MedicineDataService _medicineData;
-        public MedicineModel medicineModel;
+        private PatientDataService _patientData;
+        private FileNameType _fileNameType;
 
-        public int CurrentMedicineId = 0;
+        public MedicineModel medicineModel;
+        public PatientModel patientModel;
+
+        public int CurrentModelId = 0;
         public ModelsListPage()
         {
             InitializeComponent();
+            _patientData = new PatientDataService();
             _medicineData = new MedicineDataService();
         }
 
         public void SetUpDataGridView(FileNameType fileNameType)
         {
-            var medicines = _medicineData.GetAll();
+            _fileNameType = fileNameType;
 
             var bindingSource1 = new BindingSource();
 
-            if (medicines.Count() != 0)
+            switch (_fileNameType)
             {
-                bindingSource1.DataSource = medicines;
+                case FileNameType.Medicine:
+                    SetUpDataGridViewWithMedicines(bindingSource1);
+                    break;
+                case FileNameType.Patient:
+                    SetUpDataGridViewWithPatients(bindingSource1);
+                    break;
+                default:
+                    return;
             }
-            else
+
+            if (bindingSource1.DataSource != null)
             {
-                bindingSource1.DataSource = new List<MedicineModel>() { new() { Name = "Brak" } };
-            } 
+                dgvModels.Columns["Id"].DisplayIndex = 0;
+                dgvModels.Columns["Name"].DisplayIndex = 1;
+                dgvModels.Columns["Description"].DisplayIndex = 3;
 
-            dgvModels.DataSource = bindingSource1.DataSource;
-            dgvModels.Columns["Id"].DisplayIndex = 0;
-            dgvModels.Columns["Name"].DisplayIndex = 1;
-            dgvModels.Columns["NumberOfPatients"].DisplayIndex = 2;
-            dgvModels.Columns["Description"].DisplayIndex = 3;
-
-            dgvModels.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Name"].HeaderText = "Nazwa leku";
-            dgvModels.Columns["NumberOfPatients"].HeaderText = "Pacjenci";
-            dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvModels.Columns["Description"].HeaderText = "Uwagi";
+                dgvModels.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvModels.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvModels.Columns["Name"].HeaderText = "Nazwa";
+                dgvModels.Columns["Description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvModels.Columns["Description"].HeaderText = "Uwagi";
+            }
         }
 
+        private void SetUpDataGridViewWithMedicines(BindingSource bindingSource1)
+        {
+            if (_medicineData?.GetAll() != null)
+            {
+                bindingSource1.DataSource = _medicineData.GetAll();
+                dgvModels.DataSource = bindingSource1.DataSource;
+
+                dgvModels.Columns["NumberOfPatients"].DisplayIndex = 2;
+
+                dgvModels.Columns["NumberOfPatients"].HeaderText = "Pacjenci";
+                dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+
+        }
+        private void SetUpDataGridViewWithPatients(BindingSource bindingSource1)
+        {
+            if (_patientData?.GetAll() != null)
+            {
+                bindingSource1.DataSource = _patientData.GetAll();
+                dgvModels.DataSource = bindingSource1.DataSource;
+
+                dgvModels.Columns["NumberOfTreatments"].DisplayIndex = 2;
+
+                dgvModels.Columns["NumberOfTreatments"].HeaderText = "Kuracje";
+                dgvModels.Columns["NumberOfTreatments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvModels.Columns["NumberOfTreatments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
         private void dgvModels_SelectionChanged(object sender, EventArgs e)
         {
+
             if (dgvModels.SelectedRows.Count > 0)
-                CurrentMedicineId = Convert.ToInt32(dgvModels.SelectedRows[0].Cells["Id"].Value.ToString());
+                CurrentModelId = Convert.ToInt32(dgvModels.SelectedRows[0].Cells["Id"].Value.ToString());
 
-            if (CurrentMedicineId > 0)
+            if (CurrentModelId > 0)
             {
-                medicineModel = _medicineData.GetById(CurrentMedicineId);
-                txtName.Text = medicineModel.Name;
-
                 BindingSource bindingSource = new BindingSource();
-                bindingSource.DataSource = medicineModel.Patients;
 
-                cbPatients.DataSource = bindingSource;
+                switch (_fileNameType)
+                {
+                    case FileNameType.Medicine:
+                        medicineModel = _medicineData.GetById(CurrentModelId);
+                        txtName.Text = medicineModel?.Name;
+
+                        bindingSource.DataSource = medicineModel?.Patients;
+                        break;
+                    case FileNameType.Patient:
+                        patientModel = _patientData.GetById(CurrentModelId);
+                        txtName.Text = patientModel?.Name;
+
+                        bindingSource.DataSource = patientModel?.Treatments;
+                        break;
+                    default:
+                        break;
+                }
+
+                cbModels.DataSource = bindingSource;
             }
         }
 
         public void Reset(FileNameType fileName)
         {
             SetUpDataGridView(fileName);
-        }        
+        }
     }
 }
