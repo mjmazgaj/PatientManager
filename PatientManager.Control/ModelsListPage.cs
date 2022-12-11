@@ -33,68 +33,64 @@ namespace PatientManager.Control
         {
             _fileNameType = fileNameType;
 
+            var bindingSource1 = new BindingSource();
+
             switch (_fileNameType)
             {
                 case FileNameType.Medicine:
                     _medicineData = new MedicineDataService();
-                    SetUpDataGridViewWithMedicines();
+                    SetUpDataGridViewWithMedicines(bindingSource1);
                     break;
                 case FileNameType.Patient:
                     _patientData = new PatientDataService();
-                    SetUpDataGridViewWithPatients();
+                    SetUpDataGridViewWithPatients(bindingSource1);
                     break;
                 default:
                     return;
             }
+
+            if (bindingSource1.DataSource != null)
+            {
+                dgvModels.Columns["Id"].DisplayIndex = 0;
+                dgvModels.Columns["Name"].DisplayIndex = 1;
+                dgvModels.Columns["Description"].DisplayIndex = 3;
+
+                dgvModels.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvModels.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvModels.Columns["Name"].HeaderText = "Nazwa";
+                dgvModels.Columns["Description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvModels.Columns["Description"].HeaderText = "Uwagi";
+            }
         }
 
-        private void SetUpDataGridViewWithMedicines()
+        private void SetUpDataGridViewWithMedicines(BindingSource bindingSource1)
         {
-            var bindingSource1 = new BindingSource();
-
             if (_medicineData?.GetAll() != null)
             {
                 bindingSource1.DataSource = _medicineData.GetAll();
+                dgvModels.DataSource = bindingSource1.DataSource;
+
+                dgvModels.Columns["NumberOfPatients"].DisplayIndex = 2;
+
+                dgvModels.Columns["NumberOfPatients"].HeaderText = "Pacjenci";
+                dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
 
-            dgvModels.DataSource = bindingSource1.DataSource;
-            dgvModels.Columns["Id"].DisplayIndex = 0;
-            dgvModels.Columns["Name"].DisplayIndex = 1;
-            dgvModels.Columns["NumberOfPatients"].DisplayIndex = 2;
-            dgvModels.Columns["Description"].DisplayIndex = 3;
-
-            dgvModels.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Name"].HeaderText = "Nazwa leku";
-            dgvModels.Columns["NumberOfPatients"].HeaderText = "Pacjenci";
-            dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvModels.Columns["Description"].HeaderText = "Uwagi";
         }
-        private void SetUpDataGridViewWithPatients()
+        private void SetUpDataGridViewWithPatients(BindingSource bindingSource1)
         {
-            var bindingSource1 = new BindingSource();
-
             if (_medicineData?.GetAll() != null)
             {
                 bindingSource1.DataSource = _patientData.GetAll();
+                dgvModels.DataSource = bindingSource1.DataSource;
+
+                dgvModels.Columns["NumberOfTreatments"].DisplayIndex = 2;
+
+                dgvModels.Columns["NumberOfTreatments"].HeaderText = "Kuracje";
+                dgvModels.Columns["NumberOfTreatments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                dgvModels.Columns["NumberOfTreatments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
-
-            dgvModels.DataSource = bindingSource1.DataSource;
-            dgvModels.Columns["Id"].DisplayIndex = 0;
-            dgvModels.Columns["Name"].DisplayIndex = 1;
-            dgvModels.Columns["NumberOfTreatments"].DisplayIndex = 2;
-            dgvModels.Columns["Description"].DisplayIndex = 3;
-
-            dgvModels.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Name"].HeaderText = "Nazwa pacjenta";
-            dgvModels.Columns["NumberOfTreatments"].HeaderText = "Kuracje";
-            dgvModels.Columns["NumberOfTreatments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["NumberOfTreatments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvModels.Columns["Description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvModels.Columns["Description"].HeaderText = "Uwagi";
         }
         private void dgvModels_SelectionChanged(object sender, EventArgs e)
         {
