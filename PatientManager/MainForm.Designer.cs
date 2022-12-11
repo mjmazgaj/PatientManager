@@ -37,6 +37,7 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnTreatment = new System.Windows.Forms.Button();
             this.medicineEditPage1 = new PatientManager.Control.MedicineEditPage();
+            this.patientEditPage1 = new PatientManager.Control.PatientEditPage();
             this.SuspendLayout();
             // 
             // modelsListPage1
@@ -132,11 +133,21 @@
             // 
             // medicineEditPage1
             // 
+            this.medicineEditPage1.isEditMode = false;
             this.medicineEditPage1.Location = new System.Drawing.Point(12, 12);
             this.medicineEditPage1.Name = "medicineEditPage1";
             this.medicineEditPage1.Size = new System.Drawing.Size(600, 445);
             this.medicineEditPage1.TabIndex = 10;
             this.medicineEditPage1.Visible = false;
+            // 
+            // patientEditPage1
+            // 
+            this.patientEditPage1.isEditMode = false;
+            this.patientEditPage1.Location = new System.Drawing.Point(12, 12);
+            this.patientEditPage1.Name = "patientEditPage1";
+            this.patientEditPage1.Size = new System.Drawing.Size(600, 437);
+            this.patientEditPage1.TabIndex = 11;
+            this.patientEditPage1.Visible = false;
             // 
             // MainForm
             // 
@@ -144,6 +155,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(782, 453);
+            this.Controls.Add(this.patientEditPage1);
             this.Controls.Add(this.medicineEditPage1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -173,5 +185,6 @@
         private Button btnDelete;
         private Button btnTreatment;
         private Control.MedicineEditPage medicineEditPage1;
+        private Control.PatientEditPage patientEditPage1;
     }
 }
