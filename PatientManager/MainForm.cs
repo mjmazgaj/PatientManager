@@ -7,6 +7,8 @@ namespace PatientManager
     public partial class MainForm : Form
     {
         private MedicineDataService _medicineDataService;
+        private PatientDataService _patientDataService;
+
         private FileNameType _activeUserControlName;
         public MainForm()
         {
@@ -19,6 +21,11 @@ namespace PatientManager
             modelsListPage1.SetUpDataGridView(FileNameType.Medicine);
             EnableUserControl(modelsListPage1, FileNameType.Medicine);
         }
+        private void btnPatients_Click(object sender, EventArgs e)
+        {
+            modelsListPage1.SetUpDataGridView(FileNameType.Patient);
+            EnableUserControl(modelsListPage1, FileNameType.Patient);
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -27,7 +34,10 @@ namespace PatientManager
             switch (_activeUserControlName)
             {
                 case FileNameType.Medicine:
-                    model = _medicineDataService.GetById(modelsListPage1.CurrentMedicineId);
+                    model = _medicineDataService.GetById(modelsListPage1.CurrentModelId);
+                    break;
+                case FileNameType.Patient:
+                    model = _patientDataService.GetById(modelsListPage1.CurrentModelId);
                     break;
                 default:
                     break;
