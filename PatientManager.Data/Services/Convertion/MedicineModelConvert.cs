@@ -11,7 +11,7 @@ namespace PatientManager.Data
         {
             var medicineModel = new MedicineModel();
 
-            if (medicineModel != null)
+            if (medicineModel != null && jsonModel != null)
             {
                 medicineModel.Id = jsonModel.Id;
                 medicineModel.Name = jsonModel.Name;
@@ -26,7 +26,7 @@ namespace PatientManager.Data
         {
             var medicineJsonModel = new MedicineJsonModel();
 
-            if (medicineJsonModel != null)
+            if (medicineJsonModel != null && medicineModel != null)
             {
                 medicineJsonModel.Id = medicineModel.Id;
                 medicineJsonModel.Name = medicineModel.Name;
