@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PatientMenager.Data;
 
 namespace PatientManager.Control
 {
@@ -75,7 +76,7 @@ namespace PatientManager.Control
             ResetListPage();
 
             UserControlVisibility("medicineEditPage1", false);
-            UserControlVisibility("medicineListPage1", true);
+            UserControlVisibility("modelsListPage1", true);
         }
 
         private void UserControlVisibility(string UserControlName, bool isVisible)
@@ -91,16 +92,16 @@ namespace PatientManager.Control
         private void btnCancel_Click(object sender, EventArgs e)
         {
             UserControlVisibility("medicineEditPage1", false);
-            UserControlVisibility("medicineListPage1", true);
+            UserControlVisibility("modelsListPage1", true);
         }
 
         public void ResetListPage()
         {
             var form = Application.OpenForms["MainForm"];
-            var userControl = (MedicineListPage)form.Controls.Find("medicineListPage1", true).FirstOrDefault();
+            var userControl = (ModelsListPage)form.Controls.Find("modelsListPage1", true).FirstOrDefault();
             
             if (userControl != null)
-                userControl.Reset();
+                userControl.Reset(FileNameType.Medicine);
         }
     }
 }
