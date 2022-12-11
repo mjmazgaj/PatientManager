@@ -67,5 +67,11 @@ namespace PatientManager.Data.Services
         {
             _fileData.EditJsonPatient(PatientModelConvert.ToPatientJsonModel(model));
         }
+
+        public int GetNextId()
+        {
+            var patients = GetAll()?.OrderByDescending(x => x.Id).FirstOrDefault()?.Id;
+            return patients.HasValue ? patients.Value + 1 : 1;
+        }
     }
 }

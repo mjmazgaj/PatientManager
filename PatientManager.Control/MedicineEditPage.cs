@@ -50,7 +50,7 @@ namespace PatientManager.Control
                 txtDescription.Text = medicineModel.Description;
             }
             else
-                txtId.Text = (_medicineData.Count() + 1).ToString();
+                txtId.Text = medicineModel.Id.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
