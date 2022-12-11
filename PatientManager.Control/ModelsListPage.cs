@@ -27,6 +27,8 @@ namespace PatientManager.Control
         public ModelsListPage()
         {
             InitializeComponent();
+            _patientData = new PatientDataService();
+            _medicineData = new MedicineDataService();
         }
 
         public void SetUpDataGridView(FileNameType fileNameType)
@@ -38,11 +40,9 @@ namespace PatientManager.Control
             switch (_fileNameType)
             {
                 case FileNameType.Medicine:
-                    _medicineData = new MedicineDataService();
                     SetUpDataGridViewWithMedicines(bindingSource1);
                     break;
                 case FileNameType.Patient:
-                    _patientData = new PatientDataService();
                     SetUpDataGridViewWithPatients(bindingSource1);
                     break;
                 default:
@@ -80,7 +80,7 @@ namespace PatientManager.Control
         }
         private void SetUpDataGridViewWithPatients(BindingSource bindingSource1)
         {
-            if (_medicineData?.GetAll() != null)
+            if (_patientData?.GetAll() != null)
             {
                 bindingSource1.DataSource = _patientData.GetAll();
                 dgvModels.DataSource = bindingSource1.DataSource;
