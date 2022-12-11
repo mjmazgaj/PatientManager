@@ -2,6 +2,7 @@
 {
     public enum FileNameType
     {
-        Medicine
+        Medicine,
+        Patient
     }
 }
