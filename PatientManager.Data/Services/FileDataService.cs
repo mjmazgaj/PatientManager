@@ -66,7 +66,6 @@ namespace PatientManager.Data
 
             if (model != null)
             {
-                model.PatientIds = newObject.PatientIds;
                 model.Name = newObject.Name;
                 model.Description = newObject.Description;
             }
@@ -85,7 +84,6 @@ namespace PatientManager.Data
 
             if (model != null)
             {
-                model.TreatmentIds = newObject.TreatmentIds;
                 model.Name = newObject.Name;
                 model.Description = newObject.Description;
             }
