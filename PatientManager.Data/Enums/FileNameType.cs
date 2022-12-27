@@ -1,8 +1,9 @@
-﻿namespace PatientMenager.Data
+﻿namespace PatientManager.Data
 {
     public enum FileNameType
     {
         Medicine,
-        Patient
+        Patient,
+        Treatment
     }
 }
