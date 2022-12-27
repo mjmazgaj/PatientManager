@@ -46,7 +46,6 @@ namespace PatientManager.Control
             {
                 txtId.Text = medicineModel.Id.ToString();
                 txtName.Text = medicineModel.Name;
-                txtPatients.Text = medicineModel.NumberOfPatients.ToString();
                 txtDescription.Text = medicineModel.Description;
             }
             else

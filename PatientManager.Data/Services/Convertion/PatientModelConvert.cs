@@ -4,8 +4,6 @@ namespace PatientManager.Data
 {
     public static class PatientModelConvert
     {
-        //TODO
-        //PatientJsonModel has only Patient's Ids, PatientModel should have list of TreatmentModels.
         public static PatientModel ToPatientModel(PatientJsonModel jsonModel)
         {
             PatientModel patientModel = null;
@@ -16,7 +14,6 @@ namespace PatientManager.Data
 
                 patientModel.Id = jsonModel.Id;
                 patientModel.Name = jsonModel.Name;
-                patientModel.Treatments = jsonModel.TreatmentIds;
                 patientModel.Description = jsonModel.Description;
             };
 
@@ -33,7 +30,6 @@ namespace PatientManager.Data
 
                 patientJsonModel.Id = patientModel.Id;
                 patientJsonModel.Name = patientModel.Name;
-                patientJsonModel.TreatmentIds = patientModel.Treatments;
                 patientJsonModel.Description = patientModel.Description;
             };
 

@@ -70,11 +70,7 @@ namespace PatientManager.Control
                 bindingSource1.DataSource = _medicineData.GetAll();
                 dgvModels.DataSource = bindingSource1.DataSource;
 
-                dgvModels.Columns["NumberOfPatients"].DisplayIndex = 2;
 
-                dgvModels.Columns["NumberOfPatients"].HeaderText = "Pacjenci";
-                dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dgvModels.Columns["NumberOfPatients"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
 
         }
@@ -85,11 +81,7 @@ namespace PatientManager.Control
                 bindingSource1.DataSource = _patientData.GetAll();
                 dgvModels.DataSource = bindingSource1.DataSource;
 
-                dgvModels.Columns["NumberOfTreatments"].DisplayIndex = 2;
 
-                dgvModels.Columns["NumberOfTreatments"].HeaderText = "Kuracje";
-                dgvModels.Columns["NumberOfTreatments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dgvModels.Columns["NumberOfTreatments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
         }
         private void dgvModels_SelectionChanged(object sender, EventArgs e)
@@ -100,27 +92,19 @@ namespace PatientManager.Control
 
             if (CurrentModelId > 0)
             {
-                BindingSource bindingSource = new BindingSource();
-
                 switch (_fileNameType)
                 {
                     case FileNameType.Medicine:
                         medicineModel = _medicineData.GetById(CurrentModelId);
                         txtName.Text = medicineModel?.Name;
-
-                        bindingSource.DataSource = medicineModel?.Patients;
                         break;
                     case FileNameType.Patient:
                         patientModel = _patientData.GetById(CurrentModelId);
                         txtName.Text = patientModel?.Name;
-
-                        bindingSource.DataSource = patientModel?.Treatments;
                         break;
                     default:
                         break;
                 }
-
-                cbModels.DataSource = bindingSource;
             }
         }
 
