@@ -21,11 +21,13 @@ namespace PatientManager
 
         private void btnMedicines_Click(object sender, EventArgs e)
         {
+            ChangeActiveButtonColor(btnMedicines);
             modelsListPage1.SetUpDataGridView(FileNameType.Medicine);
             EnableUserControl(modelsListPage1, FileNameType.Medicine);
         }
         private void btnPatients_Click(object sender, EventArgs e)
         {
+            ChangeActiveButtonColor(btnPatients);
             modelsListPage1.SetUpDataGridView(FileNameType.Patient);
             EnableUserControl(modelsListPage1, FileNameType.Patient);
         }
@@ -36,6 +38,18 @@ namespace PatientManager
             EnableUserControl(modelsListPage1, FileNameType.Treatment);
         }
 
+        private void ChangeActiveButtonColor(Button button)
+        {
+            ResetButtonsColor();
+            button.BackColor = Color.DarkSeaGreen;
+        }
+        private void ResetButtonsColor()
+        {
+            btnMedicines.BackColor = SystemColors.Control;
+            btnPatients.BackColor = SystemColors.Control;
+            btnTreatment.BackColor = SystemColors.Control;
+            btnCalendar.BackColor = SystemColors.Control;
+        }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
