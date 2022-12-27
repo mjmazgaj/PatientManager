@@ -50,6 +50,7 @@
             // 
             // btnSave
             // 
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnSave.Location = new System.Drawing.Point(12, 390);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -62,6 +63,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCancel.Location = new System.Drawing.Point(136, 390);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -194,6 +196,7 @@
             // 
             // btnTreatment
             // 
+            this.btnTreatment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTreatment.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnTreatment.Location = new System.Drawing.Point(428, 390);
             this.btnTreatment.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
