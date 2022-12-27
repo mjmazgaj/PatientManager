@@ -1,7 +1,6 @@
 using PatientManager.Core;
 using PatientManager.Data.Services;
-using PatientMenager.Data;
-using System.Reflection;
+using PatientManager.Data;
 
 namespace PatientManager
 {
@@ -9,6 +8,7 @@ namespace PatientManager
     {
         private MedicineDataService _medicineDataService;
         private PatientDataService _patientDataService;
+        private TreatmentDataService _treatmentDataService;
 
         private FileNameType _activeUserControlName;
         public MainForm()
@@ -16,6 +16,7 @@ namespace PatientManager
             InitializeComponent();
             _medicineDataService = new MedicineDataService();
             _patientDataService = new PatientDataService();
+            _treatmentDataService = new TreatmentDataService();
         }
 
         private void btnMedicines_Click(object sender, EventArgs e)
@@ -28,6 +29,13 @@ namespace PatientManager
             modelsListPage1.SetUpDataGridView(FileNameType.Patient);
             EnableUserControl(modelsListPage1, FileNameType.Patient);
         }
+        private void btnTreatment_Click(object sender, EventArgs e)
+        {
+            ChangeActiveButtonColor(btnTreatment);
+            modelsListPage1.SetUpDataGridView(FileNameType.Treatment);
+            EnableUserControl(modelsListPage1, FileNameType.Treatment);
+        }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -40,6 +48,9 @@ namespace PatientManager
                     break;
                 case FileNameType.Patient:
                     DeletePatient();
+                    break;
+                case FileNameType.Treatment:
+                    DeleteTreatment();
                     break;
                 default:
                     break;
@@ -59,6 +70,9 @@ namespace PatientManager
                 case FileNameType.Patient:
                     EditPatient(modelsListPage1.CurrentModelId, false);
                     break;
+                case FileNameType.Treatment:
+                    EditTreatment(modelsListPage1.CurrentModelId, false);
+                    break;
                 default:
                     break;
             }
@@ -76,6 +90,9 @@ namespace PatientManager
                     case FileNameType.Patient:
                         EditPatient(modelsListPage1.CurrentModelId, true);
                         break;
+                    case FileNameType.Treatment:
+                        EditTreatment(modelsListPage1.CurrentModelId, true);
+                        break;
                     default:
                         break;
                 }
@@ -87,6 +104,7 @@ namespace PatientManager
             modelsListPage1.Visible = false;
             medicineEditPage1.Visible = false;
             patientEditPage1.Visible = false;
+            treatmentEditPage1.Visible = false;
         }
 
         public void EnableUserControl(UserControl userControl)
@@ -141,7 +159,26 @@ namespace PatientManager
                 patientEditPage1.SetUp(patientModel);
             }
         }
-        private bool GetResponseDoYouWantDelete(string name)
+        private void EditTreatment(int id, bool isEditMode)
+        {
+            TreatmentModel treatmentModel;
+            treatmentEditPage1.isEditMode = isEditMode;
+
+            treatmentModel = _treatmentDataService?.GetById(id);
+
+            if (treatmentModel != null && isEditMode)
+            {
+                EnableUserControl(treatmentEditPage1);
+                treatmentEditPage1.SetUp(treatmentModel);
+            }
+            else
+            {
+                EnableUserControl(treatmentEditPage1);
+                treatmentModel = new TreatmentModel() { Id = _treatmentDataService.GetNextId() };
+                treatmentEditPage1.SetUp(treatmentModel);
+            }
+        }
+        private bool DoesUserWantToRemoveObject(string name)
         {
             string dialogTitle = "Usuwanie";
             string dialogQuestion = $"Czy na pewno chcesz usunac pozycje \"{name}\"?";
@@ -152,11 +189,41 @@ namespace PatientManager
 
             return false;
         }
+
+        private bool IsModelAvailableToDelete(FileNameType fileNameType, BaseModel model)
+        {
+            bool isUsedInTreatment = false;
+            string name = string.Empty;
+
+            switch (fileNameType)
+            {
+                case FileNameType.Medicine:
+                    isUsedInTreatment = _treatmentDataService.GetAll().Any(x => x.Medicine?.Id == model?.Id);
+                    name = "leku";
+                    break;
+                case FileNameType.Patient:
+                    isUsedInTreatment = _treatmentDataService.GetAll().Any(x => x.Patient?.Id == model?.Id);
+                    name = "pacjenta";
+                    break;
+                default:
+                    break;
+            }
+
+            if (isUsedInTreatment)
+            {
+                string dialogTitle = "Usuwanie";
+                string dialogQuestion = $"Nie mozna usunac {name}, gdyz jest obecnie przypisany do przynajmniej jednej kuracji.";
+                MessageBox.Show(dialogQuestion, dialogTitle);
+            }
+
+            return !isUsedInTreatment;
+        }
+
         private void DeleteMedicine()
         {
             MedicineModel model = _medicineDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (GetResponseDoYouWantDelete(model.Name))
+            if (IsModelAvailableToDelete(FileNameType.Medicine, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _medicineDataService.Delete(model.Id);
             }
@@ -165,9 +232,18 @@ namespace PatientManager
         {
             PatientModel model = _patientDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (GetResponseDoYouWantDelete(model.Name))
+            if (IsModelAvailableToDelete(FileNameType.Patient, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _patientDataService.Delete(model.Id);
+            }
+        }
+        private void DeleteTreatment()
+        {
+            TreatmentModel model = _treatmentDataService.GetById(modelsListPage1.CurrentModelId);
+
+            if (DoesUserWantToRemoveObject(model.Name))
+            {
+                _treatmentDataService.Delete(model.Id);
             }
         }
     }

@@ -38,6 +38,7 @@
             this.btnTreatment = new System.Windows.Forms.Button();
             this.medicineEditPage1 = new PatientManager.Control.MedicineEditPage();
             this.patientEditPage1 = new PatientManager.Control.PatientEditPage();
+            this.treatmentEditPage1 = new PatientManager.Control.TreatmentEditPage();
             this.SuspendLayout();
             // 
             // modelsListPage1
@@ -130,6 +131,7 @@
             this.btnTreatment.TabIndex = 9;
             this.btnTreatment.Text = "Kuracje";
             this.btnTreatment.UseVisualStyleBackColor = true;
+            this.btnTreatment.Click += new System.EventHandler(this.btnTreatment_Click);
             // 
             // medicineEditPage1
             // 
@@ -149,12 +151,22 @@
             this.patientEditPage1.TabIndex = 11;
             this.patientEditPage1.Visible = false;
             // 
+            // treatmentEditPage1
+            // 
+            this.treatmentEditPage1.isEditMode = false;
+            this.treatmentEditPage1.Location = new System.Drawing.Point(12, 12);
+            this.treatmentEditPage1.Name = "treatmentEditPage1";
+            this.treatmentEditPage1.Size = new System.Drawing.Size(600, 437);
+            this.treatmentEditPage1.TabIndex = 12;
+            this.treatmentEditPage1.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(782, 453);
+            this.Controls.Add(this.treatmentEditPage1);
             this.Controls.Add(this.patientEditPage1);
             this.Controls.Add(this.medicineEditPage1);
             this.Controls.Add(this.btnDelete);
@@ -186,5 +198,6 @@
         private Button btnTreatment;
         private Control.MedicineEditPage medicineEditPage1;
         private Control.PatientEditPage patientEditPage1;
+        private Control.TreatmentEditPage treatmentEditPage1;
     }
 }

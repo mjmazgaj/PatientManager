@@ -44,6 +44,18 @@ namespace PatientManager.Data
             File.WriteAllText($"{fileNameType}.json", $"{jsonString}");
         }
 
+        public void DeleteJsonTreatment(int id)
+        {
+            FileNameType fileNameType = FileNameType.Treatment;
+            file = $"{fileNameType}.json";
+            List<TreatmentJsonModel> collection = GetJsonObjects<TreatmentJsonModel>(fileNameType).ToList();
+
+            collection = collection.Where(x => x.Id != id).ToList();
+
+            string jsonString = JsonSerializer.Serialize(collection, options);
+            File.WriteAllText($"{fileNameType}.json", $"{jsonString}");
+        }
+
         public void EditJsonMedicine(MedicineJsonModel newObject)
         {
             FileNameType fileNameType = FileNameType.Medicine;
@@ -75,6 +87,27 @@ namespace PatientManager.Data
             {
                 model.TreatmentIds = newObject.TreatmentIds;
                 model.Name = newObject.Name;
+                model.Description = newObject.Description;
+            }
+
+            string jsonString = JsonSerializer.Serialize(collection, options);
+            File.WriteAllText($"{fileNameType}.json", $"{jsonString}");
+        }
+
+        public void EditJsonTreatment(TreatmentJsonModel newObject)
+        {
+            FileNameType fileNameType = FileNameType.Treatment;
+            file = $"{fileNameType}.json";
+            List<TreatmentJsonModel> collection = GetJsonObjects<TreatmentJsonModel>(fileNameType).ToList();
+
+            TreatmentJsonModel model = collection.FirstOrDefault(x => x.Id == newObject.Id);
+
+            if (model != null)
+            {
+                model.PatientId = newObject.PatientId;
+                model.MedicineId = newObject.MedicineId;
+                model.Date = newObject.Date;
+                model.DayInterval = newObject.DayInterval;
                 model.Description = newObject.Description;
             }
 
