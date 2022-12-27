@@ -29,6 +29,13 @@ namespace PatientManager
             modelsListPage1.SetUpDataGridView(FileNameType.Patient);
             EnableUserControl(modelsListPage1, FileNameType.Patient);
         }
+        private void btnTreatment_Click(object sender, EventArgs e)
+        {
+            ChangeActiveButtonColor(btnTreatment);
+            modelsListPage1.SetUpDataGridView(FileNameType.Treatment);
+            EnableUserControl(modelsListPage1, FileNameType.Treatment);
+        }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -41,6 +48,9 @@ namespace PatientManager
                     break;
                 case FileNameType.Patient:
                     DeletePatient();
+                    break;
+                case FileNameType.Treatment:
+                    DeleteTreatment();
                     break;
                 default:
                     break;
@@ -60,6 +70,9 @@ namespace PatientManager
                 case FileNameType.Patient:
                     EditPatient(modelsListPage1.CurrentModelId, false);
                     break;
+                case FileNameType.Treatment:
+                    EditTreatment(modelsListPage1.CurrentModelId, false);
+                    break;
                 default:
                     break;
             }
@@ -77,6 +90,9 @@ namespace PatientManager
                     case FileNameType.Patient:
                         EditPatient(modelsListPage1.CurrentModelId, true);
                         break;
+                    case FileNameType.Treatment:
+                        EditTreatment(modelsListPage1.CurrentModelId, true);
+                        break;
                     default:
                         break;
                 }
@@ -88,6 +104,7 @@ namespace PatientManager
             modelsListPage1.Visible = false;
             medicineEditPage1.Visible = false;
             patientEditPage1.Visible = false;
+            treatmentEditPage1.Visible = false;
         }
 
         public void EnableUserControl(UserControl userControl)
@@ -140,6 +157,25 @@ namespace PatientManager
                 EnableUserControl(patientEditPage1);
                 patientModel = new PatientModel() { Id = _patientDataService.GetNextId() };
                 patientEditPage1.SetUp(patientModel);
+            }
+        }
+        private void EditTreatment(int id, bool isEditMode)
+        {
+            TreatmentModel treatmentModel;
+            treatmentEditPage1.isEditMode = isEditMode;
+
+            treatmentModel = _treatmentDataService?.GetById(id);
+
+            if (treatmentModel != null && isEditMode)
+            {
+                EnableUserControl(treatmentEditPage1);
+                treatmentEditPage1.SetUp(treatmentModel);
+            }
+            else
+            {
+                EnableUserControl(treatmentEditPage1);
+                treatmentModel = new TreatmentModel() { Id = _treatmentDataService.GetNextId() };
+                treatmentEditPage1.SetUp(treatmentModel);
             }
         }
         private bool DoesUserWantToRemoveObject(string name)
@@ -199,6 +235,15 @@ namespace PatientManager
             if (IsModelAvailableToDelete(FileNameType.Patient, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _patientDataService.Delete(model.Id);
+            }
+        }
+        private void DeleteTreatment()
+        {
+            TreatmentModel model = _treatmentDataService.GetById(modelsListPage1.CurrentModelId);
+
+            if (DoesUserWantToRemoveObject(model.Name))
+            {
+                _treatmentDataService.Delete(model.Id);
             }
         }
     }
