@@ -1,16 +1,6 @@
 ﻿using PatientManager.Core;
 using PatientManager.Data;
 using PatientManager.Data.Services;
-using PatientMenager.Data;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PatientManager.Control
 {

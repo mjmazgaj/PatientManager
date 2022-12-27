@@ -1,5 +1,4 @@
 ﻿using PatientManager.Core;
-using PatientMenager.Data;
 using System.Text.Json;
 
 namespace PatientManager.Data
