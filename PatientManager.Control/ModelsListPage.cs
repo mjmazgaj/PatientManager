@@ -82,9 +82,7 @@ namespace PatientManager.Control
                 dgvModels.DataSource = bindingSource1.DataSource;
 
                 dgvModels.Columns["Name"].Visible = true;
-
                 dgvModels.Columns["Name"].DisplayIndex = 1;
-
                 dgvModels.Columns["Name"].HeaderText = "Nazwa";
             }
 
@@ -115,8 +113,6 @@ namespace PatientManager.Control
                 dgvModels.Columns["Patient"].Visible = false;
                 dgvModels.Columns["Medicine"].Visible = false;
 
-                dgvModels.Columns["NumberOfTreatments"].DisplayIndex = 2;
-
                 dgvModels.Columns["DayInterval"].HeaderText = "Interwał";
                 dgvModels.Columns["Date"].HeaderText = "Kuracje";
                 dgvModels.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yyyy";
@@ -130,27 +126,19 @@ namespace PatientManager.Control
 
             if (CurrentModelId > 0)
             {
-                BindingSource bindingSource = new BindingSource();
-
                 switch (_fileNameType)
                 {
                     case FileNameType.Medicine:
                         medicineModel = _medicineData.GetById(CurrentModelId);
                         txtName.Text = medicineModel?.Name;
-
-                        bindingSource.DataSource = medicineModel?.Patients;
                         break;
                     case FileNameType.Patient:
                         patientModel = _patientData.GetById(CurrentModelId);
                         txtName.Text = patientModel?.Name;
-
-                        bindingSource.DataSource = patientModel?.Treatments;
                         break;
                     default:
                         break;
                 }
-
-                cbModels.DataSource = bindingSource;
             }
         }
 

@@ -52,6 +52,7 @@
             // 
             // btnCalendar
             // 
+            this.btnCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCalendar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnCalendar.Location = new System.Drawing.Point(656, 406);
             this.btnCalendar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -63,6 +64,7 @@
             // 
             // btnMedicines
             // 
+            this.btnMedicines.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMedicines.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnMedicines.Location = new System.Drawing.Point(656, 355);
             this.btnMedicines.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -75,6 +77,7 @@
             // 
             // btnPatients
             // 
+            this.btnPatients.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPatients.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnPatients.Location = new System.Drawing.Point(656, 304);
             this.btnPatients.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -87,6 +90,7 @@
             // 
             // btnAdd
             // 
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.Location = new System.Drawing.Point(656, 12);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -99,6 +103,7 @@
             // 
             // btnEdit
             // 
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEdit.Location = new System.Drawing.Point(656, 63);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -111,6 +116,7 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDelete.Location = new System.Drawing.Point(656, 114);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -123,6 +129,7 @@
             // 
             // btnTreatment
             // 
+            this.btnTreatment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTreatment.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnTreatment.Location = new System.Drawing.Point(656, 253);
             this.btnTreatment.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
