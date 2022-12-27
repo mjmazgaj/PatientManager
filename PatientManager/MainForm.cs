@@ -1,7 +1,6 @@
 using PatientManager.Core;
 using PatientManager.Data.Services;
-using PatientMenager.Data;
-using System.Reflection;
+using PatientManager.Data;
 
 namespace PatientManager
 {
@@ -9,6 +8,7 @@ namespace PatientManager
     {
         private MedicineDataService _medicineDataService;
         private PatientDataService _patientDataService;
+        private TreatmentDataService _treatmentDataService;
 
         private FileNameType _activeUserControlName;
         public MainForm()
@@ -16,6 +16,7 @@ namespace PatientManager
             InitializeComponent();
             _medicineDataService = new MedicineDataService();
             _patientDataService = new PatientDataService();
+            _treatmentDataService = new TreatmentDataService();
         }
 
         private void btnMedicines_Click(object sender, EventArgs e)
@@ -141,7 +142,7 @@ namespace PatientManager
                 patientEditPage1.SetUp(patientModel);
             }
         }
-        private bool GetResponseDoYouWantDelete(string name)
+        private bool DoesUserWantToRemoveObject(string name)
         {
             string dialogTitle = "Usuwanie";
             string dialogQuestion = $"Czy na pewno chcesz usunac pozycje \"{name}\"?";
@@ -152,11 +153,41 @@ namespace PatientManager
 
             return false;
         }
+
+        private bool IsModelAvailableToDelete(FileNameType fileNameType, BaseModel model)
+        {
+            bool isUsedInTreatment = false;
+            string name = string.Empty;
+
+            switch (fileNameType)
+            {
+                case FileNameType.Medicine:
+                    isUsedInTreatment = _treatmentDataService.GetAll().Any(x => x.Medicine?.Id == model?.Id);
+                    name = "leku";
+                    break;
+                case FileNameType.Patient:
+                    isUsedInTreatment = _treatmentDataService.GetAll().Any(x => x.Patient?.Id == model?.Id);
+                    name = "pacjenta";
+                    break;
+                default:
+                    break;
+            }
+
+            if (isUsedInTreatment)
+            {
+                string dialogTitle = "Usuwanie";
+                string dialogQuestion = $"Nie mozna usunac {name}, gdyz jest obecnie przypisany do przynajmniej jednej kuracji.";
+                MessageBox.Show(dialogQuestion, dialogTitle);
+            }
+
+            return !isUsedInTreatment;
+        }
+
         private void DeleteMedicine()
         {
             MedicineModel model = _medicineDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (GetResponseDoYouWantDelete(model.Name))
+            if (IsModelAvailableToDelete(FileNameType.Medicine, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _medicineDataService.Delete(model.Id);
             }
@@ -165,7 +196,7 @@ namespace PatientManager
         {
             PatientModel model = _patientDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (GetResponseDoYouWantDelete(model.Name))
+            if (IsModelAvailableToDelete(FileNameType.Patient, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _patientDataService.Delete(model.Id);
             }
