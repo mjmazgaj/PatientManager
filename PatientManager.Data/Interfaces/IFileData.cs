@@ -1,5 +1,4 @@
 ﻿using PatientManager.Core;
-using PatientMenager.Data;
 
 namespace PatientManager.Data
 {
@@ -9,7 +8,9 @@ namespace PatientManager.Data
         public List<T> GetJsonObjects<T>(FileNameType fileNameType);
         public void EditJsonMedicine(MedicineJsonModel newObject);
         public void EditJsonPatient(PatientJsonModel newObject);
+        public void EditJsonTreatment(TreatmentJsonModel newObject);
         public void DeleteJsonMedicine(int id);
         public void DeleteJsonPatient(int id);
+        public void DeleteJsonTreatment(int id);
     }
 }
