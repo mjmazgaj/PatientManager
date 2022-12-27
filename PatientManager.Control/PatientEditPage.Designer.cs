@@ -72,7 +72,7 @@
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblId
             // 
