@@ -41,7 +41,10 @@
             this.mcCalendar = new System.Windows.Forms.MonthCalendar();
             this.lblInterval = new System.Windows.Forms.Label();
             this.nudInterval = new System.Windows.Forms.NumericUpDown();
+            this.nudCount = new System.Windows.Forms.NumericUpDown();
+            this.lblCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudInterval)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCount)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -183,10 +186,30 @@
             this.nudInterval.Size = new System.Drawing.Size(61, 27);
             this.nudInterval.TabIndex = 15;
             // 
+            // nudCount
+            // 
+            this.nudCount.Location = new System.Drawing.Point(0, 240);
+            this.nudCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudCount.Name = "nudCount";
+            this.nudCount.Size = new System.Drawing.Size(61, 27);
+            this.nudCount.TabIndex = 17;
+            // 
+            // lblCount
+            // 
+            this.lblCount.AutoSize = true;
+            this.lblCount.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCount.Location = new System.Drawing.Point(3, 274);
+            this.lblCount.Name = "lblCount";
+            this.lblCount.Size = new System.Drawing.Size(42, 18);
+            this.lblCount.TabIndex = 16;
+            this.lblCount.Text = "Ilość";
+            // 
             // TreatmentEditPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.nudCount);
+            this.Controls.Add(this.lblCount);
             this.Controls.Add(this.nudInterval);
             this.Controls.Add(this.mcCalendar);
             this.Controls.Add(this.cbPatient);
@@ -203,6 +226,7 @@
             this.Name = "TreatmentEditPage";
             this.Size = new System.Drawing.Size(825, 530);
             ((System.ComponentModel.ISupportInitialize)(this.nudInterval)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,5 +247,7 @@
         private MonthCalendar mcCalendar;
         private Label lblInterval;
         private NumericUpDown nudInterval;
+        private NumericUpDown nudCount;
+        private Label lblCount;
     }
 }
