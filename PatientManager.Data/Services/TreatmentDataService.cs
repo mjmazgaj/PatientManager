@@ -36,7 +36,9 @@ namespace PatientManager.Data.Services
         {
             return _fileData.GetJsonObjects<TreatmentJsonModel>(FileNameType.Treatment)
                             .Select(x => TreatmentModelConvert.ToTreatmentModel(x))
-                            .OrderBy(x => x.Id)
+                            .OrderBy(x => x.Patient.Name)
+                            .ThenBy(x => x.MedicineName)
+                            .ThenBy(x => x.Id)
                             .ToList();
         }
 
