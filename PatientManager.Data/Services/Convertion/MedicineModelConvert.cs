@@ -17,6 +17,8 @@ namespace PatientManager.Data
                 medicineModel.Id = jsonModel.Id;
                 medicineModel.Name = jsonModel.Name;
                 medicineModel.Description = jsonModel.Description;
+                medicineModel.Unit = jsonModel.Unit;
+                medicineModel.Count = jsonModel.Count;
             };
 
             return medicineModel;
@@ -33,6 +35,8 @@ namespace PatientManager.Data
                 medicineJsonModel.Id = medicineModel.Id;
                 medicineJsonModel.Name = medicineModel.Name;
                 medicineJsonModel.Description = medicineModel.Description;
+                medicineJsonModel.Unit = medicineModel.Unit;
+                medicineJsonModel.Count = medicineModel.Count;
             };
 
             return medicineJsonModel;

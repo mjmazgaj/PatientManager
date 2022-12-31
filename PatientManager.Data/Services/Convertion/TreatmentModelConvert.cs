@@ -19,6 +19,7 @@ namespace PatientManager.Data
                 treatmentModel.Date = DateOnly.FromDateTime(Convert.ToDateTime(jsonModel.Date));
                 treatmentModel.DayInterval = jsonModel.DayInterval;
                 treatmentModel.Description = jsonModel.Description;
+                treatmentModel.Count = jsonModel.Count;
             };
 
             return treatmentModel;
@@ -38,6 +39,7 @@ namespace PatientManager.Data
                 treatmentJsonModel.Date = treatmentModel.Date.ToString();
                 treatmentJsonModel.DayInterval = treatmentModel.DayInterval;
                 treatmentJsonModel.Description = treatmentModel.Description;
+                treatmentJsonModel.Count = treatmentModel.Count;
             };
 
             return treatmentJsonModel;

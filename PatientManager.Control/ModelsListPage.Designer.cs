@@ -68,35 +68,35 @@
             this.dgvModels.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(4);
             this.dgvModels.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Control;
             this.dgvModels.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvModels.RowTemplate.Height = 35;
             this.dgvModels.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvModels.Size = new System.Drawing.Size(525, 292);
+            this.dgvModels.Size = new System.Drawing.Size(825, 483);
             this.dgvModels.TabIndex = 0;
             this.dgvModels.SelectionChanged += new System.EventHandler(this.dgvModels_SelectionChanged);
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(11, 309);
+            this.lblName.Location = new System.Drawing.Point(6, 503);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(42, 15);
+            this.lblName.Size = new System.Drawing.Size(54, 20);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "Nazwa";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(64, 307);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtName.Location = new System.Drawing.Point(66, 500);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(176, 23);
+            this.txtName.Size = new System.Drawing.Size(201, 27);
             this.txtName.TabIndex = 2;
             // 
             // lblModels
             // 
             this.lblModels.AutoSize = true;
-            this.lblModels.Location = new System.Drawing.Point(261, 309);
+            this.lblModels.Location = new System.Drawing.Point(530, 503);
             this.lblModels.Name = "lblModels";
-            this.lblModels.Size = new System.Drawing.Size(51, 15);
+            this.lblModels.Size = new System.Drawing.Size(62, 20);
             this.lblModels.TabIndex = 1;
             this.lblModels.Text = "Pacjenci";
             // 
@@ -105,15 +105,14 @@
             this.cbModels.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cbModels.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbModels.FormattingEnabled = true;
-            this.cbModels.Location = new System.Drawing.Point(320, 306);
-            this.cbModels.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbModels.Location = new System.Drawing.Point(600, 499);
             this.cbModels.Name = "cbModels";
-            this.cbModels.Size = new System.Drawing.Size(189, 23);
+            this.cbModels.Size = new System.Drawing.Size(215, 28);
             this.cbModels.TabIndex = 3;
             // 
             // ModelsListPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.cbModels);
@@ -121,9 +120,8 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.dgvModels);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ModelsListPage";
-            this.Size = new System.Drawing.Size(525, 334);
+            this.Size = new System.Drawing.Size(825, 530);
             ((System.ComponentModel.ISupportInitialize)(this.dgvModels)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

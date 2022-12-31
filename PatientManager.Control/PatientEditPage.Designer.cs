@@ -52,7 +52,7 @@
             // 
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.Location = new System.Drawing.Point(12, 390);
+            this.btnSave.Location = new System.Drawing.Point(9, 483);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(114, 43);
@@ -65,7 +65,7 @@
             // 
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCancel.Location = new System.Drawing.Point(136, 390);
+            this.btnCancel.Location = new System.Drawing.Point(133, 483);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(114, 43);
@@ -97,7 +97,7 @@
             // 
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(130, 29);
+            this.lblName.Location = new System.Drawing.Point(110, 29);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(59, 18);
             this.lblName.TabIndex = 11;
@@ -106,16 +106,16 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtName.Location = new System.Drawing.Point(130, 0);
+            this.txtName.Location = new System.Drawing.Point(110, 0);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(200, 26);
+            this.txtName.Size = new System.Drawing.Size(280, 26);
             this.txtName.TabIndex = 12;
             // 
             // lblPatients
             // 
             this.lblPatients.AutoSize = true;
             this.lblPatients.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPatients.Location = new System.Drawing.Point(440, 29);
+            this.lblPatients.Location = new System.Drawing.Point(580, 29);
             this.lblPatients.Name = "lblPatients";
             this.lblPatients.Size = new System.Drawing.Size(137, 18);
             this.lblPatients.TabIndex = 11;
@@ -125,7 +125,7 @@
             // 
             this.txtPatients.Enabled = false;
             this.txtPatients.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPatients.Location = new System.Drawing.Point(440, 0);
+            this.txtPatients.Location = new System.Drawing.Point(580, 0);
             this.txtPatients.Name = "txtPatients";
             this.txtPatients.Size = new System.Drawing.Size(50, 26);
             this.txtPatients.TabIndex = 12;
@@ -134,7 +134,7 @@
             // 
             this.lblDetails.AutoSize = true;
             this.lblDetails.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDetails.Location = new System.Drawing.Point(0, 133);
+            this.lblDetails.Location = new System.Drawing.Point(0, 160);
             this.lblDetails.Name = "lblDetails";
             this.lblDetails.Size = new System.Drawing.Size(40, 18);
             this.lblDetails.TabIndex = 11;
@@ -146,7 +146,7 @@
             this.txtDescription.Location = new System.Drawing.Point(0, 70);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(600, 60);
+            this.txtDescription.Size = new System.Drawing.Size(825, 88);
             this.txtDescription.TabIndex = 12;
             // 
             // dgvTreatment
@@ -169,7 +169,7 @@
             this.dgvTreatment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvTreatment.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvTreatment.EnableHeadersVisualStyles = false;
-            this.dgvTreatment.Location = new System.Drawing.Point(0, 170);
+            this.dgvTreatment.Location = new System.Drawing.Point(0, 215);
             this.dgvTreatment.Margin = new System.Windows.Forms.Padding(0);
             this.dgvTreatment.Name = "dgvTreatment";
             this.dgvTreatment.RowHeadersVisible = false;
@@ -181,14 +181,14 @@
             this.dgvTreatment.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.SystemColors.Control;
             this.dgvTreatment.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvTreatment.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTreatment.Size = new System.Drawing.Size(600, 178);
+            this.dgvTreatment.Size = new System.Drawing.Size(825, 235);
             this.dgvTreatment.TabIndex = 13;
             // 
             // lblTreatment
             // 
             this.lblTreatment.AutoSize = true;
             this.lblTreatment.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTreatment.Location = new System.Drawing.Point(0, 348);
+            this.lblTreatment.Location = new System.Drawing.Point(0, 450);
             this.lblTreatment.Name = "lblTreatment";
             this.lblTreatment.Size = new System.Drawing.Size(64, 18);
             this.lblTreatment.TabIndex = 11;
@@ -198,7 +198,7 @@
             // 
             this.btnTreatment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTreatment.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTreatment.Location = new System.Drawing.Point(428, 390);
+            this.btnTreatment.Location = new System.Drawing.Point(660, 483);
             this.btnTreatment.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnTreatment.Name = "btnTreatment";
             this.btnTreatment.Size = new System.Drawing.Size(160, 43);
@@ -224,7 +224,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Name = "PatientEditPage";
-            this.Size = new System.Drawing.Size(600, 445);
+            this.Size = new System.Drawing.Size(825, 530);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

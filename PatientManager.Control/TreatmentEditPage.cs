@@ -16,13 +16,8 @@ namespace PatientManager.Control
 
         public void SetUp(TreatmentModel TreatmentModel)
         {
-            DisplayEditMode();
             PopulateTextBoxesWithTreatmentData(TreatmentModel);
             PopulateComboBoxes();
-        }
-
-        private void DisplayEditMode()
-        {
         }
 
         private void PopulateTextBoxesWithTreatmentData(TreatmentModel TreatmentModel)
@@ -31,9 +26,14 @@ namespace PatientManager.Control
             {
                 txtId.Text = TreatmentModel.Id.ToString();
                 txtDescription.Text = TreatmentModel.Description;
+                nudInterval.Value = TreatmentModel.DayInterval;
+                nudCount.Value = TreatmentModel.Count;
             }
             else
+            {
                 txtId.Text = TreatmentModel.Id.ToString();
+                txtDescription.Text = String.Empty;
+            }
         }
 
         private void PopulateComboBoxes()
@@ -43,7 +43,7 @@ namespace PatientManager.Control
             bindingSourceMedicines.DataSource = _treatmentData.GetAllMedicines();
             bindingSourcePatientes.DataSource = _treatmentData.GetAllPatientes();
 
-            cbMedicine.DisplayMember = "Name";
+            cbMedicine.DisplayMember = "FullName";
             cbPatient.DisplayMember = "Name";
 
             cbMedicine.DataSource = bindingSourceMedicines;
@@ -66,6 +66,7 @@ namespace PatientManager.Control
                 TreatmentModel.Description = txtDescription.Text;
                 TreatmentModel.Date = DateOnly.FromDateTime(mcCalendar.SelectionStart);
                 TreatmentModel.DayInterval = Convert.ToInt32(nudInterval.Value);
+                TreatmentModel.Count = Convert.ToInt32(nudCount.Value);
 
                 _treatmentData.Update(TreatmentModel);
             }
@@ -78,7 +79,8 @@ namespace PatientManager.Control
                 TreatmentModel.Description = txtDescription.Text;
                 TreatmentModel.Date = DateOnly.FromDateTime(mcCalendar.SelectionStart);
                 TreatmentModel.DayInterval = Convert.ToInt32(nudInterval.Value);
-                
+                TreatmentModel.Count = Convert.ToInt32(nudCount.Value);
+
                 _treatmentData.Add(TreatmentModel);
             }
 

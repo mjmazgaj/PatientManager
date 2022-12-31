@@ -36,7 +36,9 @@ namespace PatientManager.Data.Services
         {
             return _fileData.GetJsonObjects<TreatmentJsonModel>(FileNameType.Treatment)
                             .Select(x => TreatmentModelConvert.ToTreatmentModel(x))
-                            .OrderBy(x => x.Id)
+                            .OrderBy(x => x.Patient.Name)
+                            .ThenBy(x => x.MedicineName)
+                            .ThenBy(x => x.Id)
                             .ToList();
         }
 
@@ -97,5 +99,47 @@ namespace PatientManager.Data.Services
                     .Select(x => x.Medicine)
                     .ToList();
         }
+
+        public List<MedicineMonthDoses> GetRecord(int month, int year)
+        {
+            List<MedicineMonthDoses> monthDoses = new List<MedicineMonthDoses>();
+
+            GetAllMedicines()
+                .ForEach(item => GetAll()
+                .Where(x => x.Medicine.Id == item.Id)
+                .ToList()
+                .ForEach(x => monthDoses.Add(GetMedicineMonthDosesInMonth(x, month, year))));
+
+            return monthDoses;
+        }
+
+        private MedicineMonthDoses GetMedicineMonthDosesInMonth(TreatmentModel treatment, int month, int year)
+        {
+            MedicineMonthDoses medicineMonthDoses = new MedicineMonthDoses()
+            {
+                MedicineFullName = treatment.Medicine.FullName,
+                MedicineId = treatment.Medicine.Id,
+                Dates = new List<DateOnly>()
+            };
+
+            DateOnly date = new DateOnly(year, month, 1);
+            DateOnly nextMonth = new DateOnly(year, month, 1).AddMonths(1);
+            DateOnly doseDate = treatment.Date;
+
+
+            while (date > doseDate)
+                doseDate = doseDate.AddDays(treatment.DayInterval);
+
+            while (nextMonth > doseDate)
+            {
+                medicineMonthDoses.Dates.Add(doseDate);
+                medicineMonthDoses.Doses += treatment.Count;
+
+                doseDate = doseDate.AddDays(treatment.DayInterval);
+            }
+
+            return medicineMonthDoses;
+        }
+
     }
 }

@@ -17,43 +17,74 @@ namespace PatientManager
             _medicineDataService = new MedicineDataService();
             _patientDataService = new PatientDataService();
             _treatmentDataService = new TreatmentDataService();
+            ChangeActiveButtonColor(btnSummary);
+            EnableUserControl(treatmentsSummary1);
         }
 
         private void btnMedicines_Click(object sender, EventArgs e)
         {
             ChangeActiveButtonColor(btnMedicines);
+            EnableFunctionButtons();
             modelsListPage1.SetUpDataGridView(FileNameType.Medicine);
             EnableUserControl(modelsListPage1, FileNameType.Medicine);
         }
         private void btnPatients_Click(object sender, EventArgs e)
         {
             ChangeActiveButtonColor(btnPatients);
+            EnableFunctionButtons();
             modelsListPage1.SetUpDataGridView(FileNameType.Patient);
             EnableUserControl(modelsListPage1, FileNameType.Patient);
         }
         private void btnTreatment_Click(object sender, EventArgs e)
         {
             ChangeActiveButtonColor(btnTreatment);
+            EnableFunctionButtons();
             modelsListPage1.SetUpDataGridView(FileNameType.Treatment);
             EnableUserControl(modelsListPage1, FileNameType.Treatment);
         }
-
+        private void btnSummary_Click(object sender, EventArgs e)
+        {
+            ChangeActiveButtonColor(btnSummary);
+            DisableFunctionButtons();
+            EnableUserControl(treatmentsSummary1);
+        }
         private void ChangeActiveButtonColor(Button button)
         {
             ResetButtonsColor();
             button.BackColor = Color.DarkSeaGreen;
+        }
+
+        private void DisableFunctionButtons()
+        {
+            btnAdd.Enabled = false;
+            btnEdit.Enabled = false;
+            btnDelete.Enabled = false;
+        }
+        private void EnableFunctionButtons()
+        {
+            btnAdd.Enabled = true;
+            btnEdit.Enabled = true;
+            btnDelete.Enabled = true;
         }
         private void ResetButtonsColor()
         {
             btnMedicines.BackColor = SystemColors.Control;
             btnPatients.BackColor = SystemColors.Control;
             btnTreatment.BackColor = SystemColors.Control;
-            btnCalendar.BackColor = SystemColors.Control;
+            btnSummary.BackColor = SystemColors.Control;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            BaseModel model = null;
+            if (modelsListPage1.Visible == false)
+            {
+
+                string dialogTitle = "Usuwanie";
+                string dialogQuestion = $"Nie mozna usuwac w trybie edycji.";
+                MessageBox.Show(dialogQuestion, dialogTitle);
+
+                return;
+            }
 
             switch (_activeUserControlName)
             {
@@ -119,6 +150,7 @@ namespace PatientManager
             medicineEditPage1.Visible = false;
             patientEditPage1.Visible = false;
             treatmentEditPage1.Visible = false;
+            treatmentsSummary1.Visible = false;
         }
 
         public void EnableUserControl(UserControl userControl)
@@ -237,7 +269,7 @@ namespace PatientManager
         {
             MedicineModel model = _medicineDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (IsModelAvailableToDelete(FileNameType.Medicine, model) && DoesUserWantToRemoveObject(model.Name))
+            if (model != null && IsModelAvailableToDelete(FileNameType.Medicine, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _medicineDataService.Delete(model.Id);
             }
@@ -246,7 +278,7 @@ namespace PatientManager
         {
             PatientModel model = _patientDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (IsModelAvailableToDelete(FileNameType.Patient, model) && DoesUserWantToRemoveObject(model.Name))
+            if (model != null && IsModelAvailableToDelete(FileNameType.Patient, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _patientDataService.Delete(model.Id);
             }
@@ -255,7 +287,7 @@ namespace PatientManager
         {
             TreatmentModel model = _treatmentDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (DoesUserWantToRemoveObject(model.Name))
+            if (model != null && DoesUserWantToRemoveObject(model.Name))
             {
                 _treatmentDataService.Delete(model.Id);
             }
