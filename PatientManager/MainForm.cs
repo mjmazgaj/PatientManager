@@ -69,7 +69,15 @@ namespace PatientManager
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            BaseModel model = null;
+            if (modelsListPage1.Visible == false)
+            {
+
+                string dialogTitle = "Usuwanie";
+                string dialogQuestion = $"Nie mozna usuwac w trybie edycji.";
+                MessageBox.Show(dialogQuestion, dialogTitle);
+
+                return;
+            }
 
             switch (_activeUserControlName)
             {
@@ -253,7 +261,7 @@ namespace PatientManager
         {
             MedicineModel model = _medicineDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (IsModelAvailableToDelete(FileNameType.Medicine, model) && DoesUserWantToRemoveObject(model.Name))
+            if (model != null && IsModelAvailableToDelete(FileNameType.Medicine, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _medicineDataService.Delete(model.Id);
             }
@@ -262,7 +270,7 @@ namespace PatientManager
         {
             PatientModel model = _patientDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (IsModelAvailableToDelete(FileNameType.Patient, model) && DoesUserWantToRemoveObject(model.Name))
+            if (model != null && IsModelAvailableToDelete(FileNameType.Patient, model) && DoesUserWantToRemoveObject(model.Name))
             {
                 _patientDataService.Delete(model.Id);
             }
@@ -271,7 +279,7 @@ namespace PatientManager
         {
             TreatmentModel model = _treatmentDataService.GetById(modelsListPage1.CurrentModelId);
 
-            if (DoesUserWantToRemoveObject(model.Name))
+            if (model != null && DoesUserWantToRemoveObject(model.Name))
             {
                 _treatmentDataService.Delete(model.Id);
             }
