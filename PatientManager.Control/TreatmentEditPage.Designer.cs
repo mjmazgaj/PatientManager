@@ -47,7 +47,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.Location = new System.Drawing.Point(11, 389);
+            this.btnSave.Location = new System.Drawing.Point(9, 483);
             this.btnSave.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(114, 43);
@@ -59,7 +59,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCancel.Location = new System.Drawing.Point(136, 389);
+            this.btnCancel.Location = new System.Drawing.Point(133, 483);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(114, 43);
@@ -91,7 +91,7 @@
             // 
             this.lblDetails.AutoSize = true;
             this.lblDetails.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblDetails.Location = new System.Drawing.Point(0, 351);
+            this.lblDetails.Location = new System.Drawing.Point(0, 441);
             this.lblDetails.Name = "lblDetails";
             this.lblDetails.Size = new System.Drawing.Size(40, 18);
             this.lblDetails.TabIndex = 11;
@@ -100,17 +100,17 @@
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDescription.Location = new System.Drawing.Point(0, 288);
+            this.txtDescription.Location = new System.Drawing.Point(0, 326);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(601, 60);
+            this.txtDescription.Size = new System.Drawing.Size(831, 112);
             this.txtDescription.TabIndex = 12;
             // 
             // lblMedicine
             // 
             this.lblMedicine.AutoSize = true;
             this.lblMedicine.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMedicine.Location = new System.Drawing.Point(0, 91);
+            this.lblMedicine.Location = new System.Drawing.Point(0, 110);
             this.lblMedicine.Name = "lblMedicine";
             this.lblMedicine.Size = new System.Drawing.Size(34, 18);
             this.lblMedicine.TabIndex = 11;
@@ -119,16 +119,16 @@
             // cbMedicine
             // 
             this.cbMedicine.FormattingEnabled = true;
-            this.cbMedicine.Location = new System.Drawing.Point(0, 60);
+            this.cbMedicine.Location = new System.Drawing.Point(0, 79);
             this.cbMedicine.Name = "cbMedicine";
-            this.cbMedicine.Size = new System.Drawing.Size(250, 28);
+            this.cbMedicine.Size = new System.Drawing.Size(352, 28);
             this.cbMedicine.TabIndex = 13;
             // 
             // lblPatient
             // 
             this.lblPatient.AutoSize = true;
             this.lblPatient.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPatient.Location = new System.Drawing.Point(0, 171);
+            this.lblPatient.Location = new System.Drawing.Point(0, 190);
             this.lblPatient.Name = "lblPatient";
             this.lblPatient.Size = new System.Drawing.Size(63, 18);
             this.lblPatient.TabIndex = 11;
@@ -137,9 +137,9 @@
             // cbPatient
             // 
             this.cbPatient.FormattingEnabled = true;
-            this.cbPatient.Location = new System.Drawing.Point(0, 140);
+            this.cbPatient.Location = new System.Drawing.Point(0, 159);
             this.cbPatient.Name = "cbPatient";
-            this.cbPatient.Size = new System.Drawing.Size(250, 28);
+            this.cbPatient.Size = new System.Drawing.Size(352, 28);
             this.cbPatient.TabIndex = 13;
             // 
             // mcCalendar
@@ -148,7 +148,7 @@
             this.mcCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.mcCalendar.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.mcCalendar.ForeColor = System.Drawing.SystemColors.Control;
-            this.mcCalendar.Location = new System.Drawing.Point(312, 60);
+            this.mcCalendar.Location = new System.Drawing.Point(537, 60);
             this.mcCalendar.Margin = new System.Windows.Forms.Padding(14);
             this.mcCalendar.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.mcCalendar.MaxSelectionCount = 1;
@@ -169,7 +169,7 @@
             // 
             this.lblInterval.AutoSize = true;
             this.lblInterval.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblInterval.Location = new System.Drawing.Point(3, 249);
+            this.lblInterval.Location = new System.Drawing.Point(136, 274);
             this.lblInterval.Name = "lblInterval";
             this.lblInterval.Size = new System.Drawing.Size(108, 18);
             this.lblInterval.TabIndex = 11;
@@ -177,7 +177,7 @@
             // 
             // nudInterval
             // 
-            this.nudInterval.Location = new System.Drawing.Point(0, 215);
+            this.nudInterval.Location = new System.Drawing.Point(133, 240);
             this.nudInterval.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nudInterval.Name = "nudInterval";
             this.nudInterval.Size = new System.Drawing.Size(61, 27);
@@ -201,7 +201,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Name = "TreatmentEditPage";
-            this.Size = new System.Drawing.Size(600, 445);
+            this.Size = new System.Drawing.Size(825, 530);
             ((System.ComponentModel.ISupportInitialize)(this.nudInterval)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

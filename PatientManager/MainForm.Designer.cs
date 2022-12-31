@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.modelsListPage1 = new PatientManager.Control.ModelsListPage();
-            this.btnCalendar = new System.Windows.Forms.Button();
+            this.btnSummary = new System.Windows.Forms.Button();
             this.btnMedicines = new System.Windows.Forms.Button();
             this.btnPatients = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -46,27 +46,28 @@
             this.modelsListPage1.BackColor = System.Drawing.SystemColors.Control;
             this.modelsListPage1.Location = new System.Drawing.Point(12, 12);
             this.modelsListPage1.Name = "modelsListPage1";
-            this.modelsListPage1.Size = new System.Drawing.Size(600, 445);
+            this.modelsListPage1.Size = new System.Drawing.Size(825, 530);
             this.modelsListPage1.TabIndex = 0;
             this.modelsListPage1.Visible = false;
             // 
-            // btnCalendar
+            // btnSummary
             // 
-            this.btnCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCalendar.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCalendar.Location = new System.Drawing.Point(656, 406);
-            this.btnCalendar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.btnCalendar.Name = "btnCalendar";
-            this.btnCalendar.Size = new System.Drawing.Size(114, 43);
-            this.btnCalendar.TabIndex = 9;
-            this.btnCalendar.Text = "Ogólne";
-            this.btnCalendar.UseVisualStyleBackColor = true;
+            this.btnSummary.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSummary.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnSummary.Location = new System.Drawing.Point(854, 498);
+            this.btnSummary.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnSummary.Name = "btnSummary";
+            this.btnSummary.Size = new System.Drawing.Size(114, 43);
+            this.btnSummary.TabIndex = 9;
+            this.btnSummary.TabStop = false;
+            this.btnSummary.Text = "Bilans";
+            this.btnSummary.UseVisualStyleBackColor = true;
             // 
             // btnMedicines
             // 
             this.btnMedicines.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMedicines.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnMedicines.Location = new System.Drawing.Point(656, 355);
+            this.btnMedicines.Location = new System.Drawing.Point(854, 447);
             this.btnMedicines.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnMedicines.Name = "btnMedicines";
             this.btnMedicines.Size = new System.Drawing.Size(114, 43);
@@ -79,7 +80,7 @@
             // 
             this.btnPatients.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPatients.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPatients.Location = new System.Drawing.Point(656, 304);
+            this.btnPatients.Location = new System.Drawing.Point(854, 396);
             this.btnPatients.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnPatients.Name = "btnPatients";
             this.btnPatients.Size = new System.Drawing.Size(114, 43);
@@ -92,7 +93,7 @@
             // 
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnAdd.Location = new System.Drawing.Point(656, 12);
+            this.btnAdd.Location = new System.Drawing.Point(854, 12);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(114, 43);
@@ -105,7 +106,7 @@
             // 
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnEdit.Location = new System.Drawing.Point(656, 63);
+            this.btnEdit.Location = new System.Drawing.Point(854, 63);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(114, 43);
@@ -118,7 +119,7 @@
             // 
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnDelete.Location = new System.Drawing.Point(656, 114);
+            this.btnDelete.Location = new System.Drawing.Point(854, 114);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(114, 43);
@@ -131,7 +132,7 @@
             // 
             this.btnTreatment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnTreatment.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTreatment.Location = new System.Drawing.Point(656, 253);
+            this.btnTreatment.Location = new System.Drawing.Point(854, 345);
             this.btnTreatment.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnTreatment.Name = "btnTreatment";
             this.btnTreatment.Size = new System.Drawing.Size(114, 43);
@@ -145,7 +146,7 @@
             this.medicineEditPage1.isEditMode = false;
             this.medicineEditPage1.Location = new System.Drawing.Point(12, 12);
             this.medicineEditPage1.Name = "medicineEditPage1";
-            this.medicineEditPage1.Size = new System.Drawing.Size(600, 445);
+            this.medicineEditPage1.Size = new System.Drawing.Size(825, 530);
             this.medicineEditPage1.TabIndex = 10;
             this.medicineEditPage1.Visible = false;
             // 
@@ -154,7 +155,7 @@
             this.patientEditPage1.isEditMode = false;
             this.patientEditPage1.Location = new System.Drawing.Point(12, 12);
             this.patientEditPage1.Name = "patientEditPage1";
-            this.patientEditPage1.Size = new System.Drawing.Size(600, 437);
+            this.patientEditPage1.Size = new System.Drawing.Size(825, 530);
             this.patientEditPage1.TabIndex = 11;
             this.patientEditPage1.Visible = false;
             // 
@@ -163,7 +164,7 @@
             this.treatmentEditPage1.isEditMode = false;
             this.treatmentEditPage1.Location = new System.Drawing.Point(12, 12);
             this.treatmentEditPage1.Name = "treatmentEditPage1";
-            this.treatmentEditPage1.Size = new System.Drawing.Size(600, 437);
+            this.treatmentEditPage1.Size = new System.Drawing.Size(825, 530);
             this.treatmentEditPage1.TabIndex = 12;
             this.treatmentEditPage1.Visible = false;
             // 
@@ -172,10 +173,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(782, 453);
             this.Controls.Add(this.treatmentEditPage1);
             this.Controls.Add(this.patientEditPage1);
             this.Controls.Add(this.medicineEditPage1);
+            this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -196,7 +197,7 @@
         #endregion
 
         private Control.ModelsListPage modelsListPage1;
-        private Button btnCalendar;
+        private Button btnSummary;
         private Button btnMedicines;
         private Button btnPatients;
         private Button btnAdd;
