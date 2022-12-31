@@ -39,6 +39,7 @@
             this.medicineEditPage1 = new PatientManager.Control.MedicineEditPage();
             this.patientEditPage1 = new PatientManager.Control.PatientEditPage();
             this.treatmentEditPage1 = new PatientManager.Control.TreatmentEditPage();
+            this.treatmentsSummary1 = new PatientManager.Control.TreatmentsSummary();
             this.SuspendLayout();
             // 
             // modelsListPage1
@@ -62,6 +63,7 @@
             this.btnSummary.TabStop = false;
             this.btnSummary.Text = "Bilans";
             this.btnSummary.UseVisualStyleBackColor = true;
+            this.btnSummary.Click += new System.EventHandler(this.btnSummary_Click);
             // 
             // btnMedicines
             // 
@@ -168,14 +170,19 @@
             this.treatmentEditPage1.TabIndex = 12;
             this.treatmentEditPage1.Visible = false;
             // 
+            // treatmentsSummary1
+            // 
+            this.treatmentsSummary1.Location = new System.Drawing.Point(12, 12);
+            this.treatmentsSummary1.Name = "treatmentsSummary1";
+            this.treatmentsSummary1.Size = new System.Drawing.Size(825, 530);
+            this.treatmentsSummary1.TabIndex = 13;
+            this.treatmentsSummary1.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.Controls.Add(this.treatmentEditPage1);
-            this.Controls.Add(this.patientEditPage1);
-            this.Controls.Add(this.medicineEditPage1);
             this.ClientSize = new System.Drawing.Size(982, 553);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
@@ -183,7 +190,11 @@
             this.Controls.Add(this.btnTreatment);
             this.Controls.Add(this.btnPatients);
             this.Controls.Add(this.btnMedicines);
-            this.Controls.Add(this.btnCalendar);
+            this.Controls.Add(this.btnSummary);
+            this.Controls.Add(this.treatmentsSummary1);
+            this.Controls.Add(this.treatmentEditPage1);
+            this.Controls.Add(this.patientEditPage1);
+            this.Controls.Add(this.medicineEditPage1);
             this.Controls.Add(this.modelsListPage1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -207,5 +218,6 @@
         private Control.MedicineEditPage medicineEditPage1;
         private Control.PatientEditPage patientEditPage1;
         private Control.TreatmentEditPage treatmentEditPage1;
+        private Control.TreatmentsSummary treatmentsSummary1;
     }
 }

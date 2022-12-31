@@ -17,6 +17,8 @@ namespace PatientManager
             _medicineDataService = new MedicineDataService();
             _patientDataService = new PatientDataService();
             _treatmentDataService = new TreatmentDataService();
+            ChangeActiveButtonColor(btnSummary);
+            EnableUserControl(treatmentsSummary1);
         }
 
         private void btnMedicines_Click(object sender, EventArgs e)
@@ -40,7 +42,12 @@ namespace PatientManager
             modelsListPage1.SetUpDataGridView(FileNameType.Treatment);
             EnableUserControl(modelsListPage1, FileNameType.Treatment);
         }
-
+        private void btnSummary_Click(object sender, EventArgs e)
+        {
+            ChangeActiveButtonColor(btnSummary);
+            DisableFunctionButtons();
+            EnableUserControl(treatmentsSummary1);
+        }
         private void ChangeActiveButtonColor(Button button)
         {
             ResetButtonsColor();
@@ -64,7 +71,7 @@ namespace PatientManager
             btnMedicines.BackColor = SystemColors.Control;
             btnPatients.BackColor = SystemColors.Control;
             btnTreatment.BackColor = SystemColors.Control;
-            btnCalendar.BackColor = SystemColors.Control;
+            btnSummary.BackColor = SystemColors.Control;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -143,6 +150,7 @@ namespace PatientManager
             medicineEditPage1.Visible = false;
             patientEditPage1.Visible = false;
             treatmentEditPage1.Visible = false;
+            treatmentsSummary1.Visible = false;
         }
 
         public void EnableUserControl(UserControl userControl)
