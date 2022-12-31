@@ -1,6 +1,7 @@
 ﻿using PatientManager.Core;
 using PatientManager.Data.Services;
 using PatientManager.Data;
+using PatientManager.Core.Enum;
 
 namespace PatientManager.Control
 {
@@ -17,6 +18,7 @@ namespace PatientManager.Control
         public void SetUp(MedicineModel medicineModel)
         {
             DisplayEditMode();
+            PopulateComboBoxes();
             PopulateTextBoxesWithMedicineData(medicineModel);
         }
 
@@ -25,8 +27,7 @@ namespace PatientManager.Control
             dgvTreatment.Visible = isEditMode;
             lblTreatment.Visible = isEditMode;
 
-            txtPatients.Visible = isEditMode;
-            lblPatients.Visible = isEditMode;
+            lblCount.Visible = isEditMode;
         }
 
         private void PopulateTextBoxesWithMedicineData(MedicineModel medicineModel)
@@ -36,18 +37,26 @@ namespace PatientManager.Control
                 txtId.Text = medicineModel.Id.ToString();
                 txtName.Text = medicineModel.Name;
                 txtDescription.Text = medicineModel.Description;
+                nudCount.Value = medicineModel.Count;
+                cbUnits.SelectedItem = medicineModel.Unit;
             }
             else
                 txtId.Text = medicineModel.Id.ToString();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
+        private void PopulateComboBoxes()
+        {
+            cbUnits.DataSource = Enum.GetValues(typeof(MedicineUnits));
+        }
         {
             if (isEditMode)
             {
                 MedicineModel medicineModel = _medicineData.GetById(Convert.ToInt32(txtId.Text));
                 medicineModel.Name = txtName.Text;
                 medicineModel.Description = txtDescription.Text;
+                medicineModel.Unit = (MedicineUnits)cbUnits.SelectedItem;
+                medicineModel.Count = nudCount.Value;
 
                 _medicineData.Update(medicineModel);
             }
@@ -57,6 +66,8 @@ namespace PatientManager.Control
                 medicineModel.Id = Convert.ToInt32(txtId.Text);
                 medicineModel.Name = txtName.Text;
                 medicineModel.Description = txtDescription.Text;
+                medicineModel.Unit = (MedicineUnits)cbUnits.SelectedItem;
+                medicineModel.Count = nudCount.Value;
 
                 _medicineData.Add(medicineModel);
             }

@@ -35,8 +35,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.lblPatients = new System.Windows.Forms.Label();
-            this.txtPatients = new System.Windows.Forms.TextBox();
+            this.lblCount = new System.Windows.Forms.Label();
             this.lblDetails = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dgvTreatment = new System.Windows.Forms.DataGridView();
@@ -45,7 +44,11 @@
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.pageSetupDialog2 = new System.Windows.Forms.PageSetupDialog();
             this.pageSetupDialog3 = new System.Windows.Forms.PageSetupDialog();
+            this.nudCount = new System.Windows.Forms.NumericUpDown();
+            this.cbUnits = new System.Windows.Forms.ComboBox();
+            this.lblUnit = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCount)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSave
@@ -194,16 +197,50 @@
             this.btnTreatment.Text = "Edytuj kuracje";
             this.btnTreatment.UseVisualStyleBackColor = true;
             // 
+            // nudCount
+            // 
+            this.nudCount.DecimalPlaces = 2;
+            this.nudCount.Location = new System.Drawing.Point(580, 0);
+            this.nudCount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudCount.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudCount.Name = "nudCount";
+            this.nudCount.Size = new System.Drawing.Size(101, 27);
+            this.nudCount.TabIndex = 16;
+            // 
+            // cbUnits
+            // 
+            this.cbUnits.FormattingEnabled = true;
+            this.cbUnits.Location = new System.Drawing.Point(727, 0);
+            this.cbUnits.Name = "cbUnits";
+            this.cbUnits.Size = new System.Drawing.Size(98, 28);
+            this.cbUnits.TabIndex = 17;
+            // 
+            // lblUnit
+            // 
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.Font = new System.Drawing.Font("Verdana", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUnit.Location = new System.Drawing.Point(727, 31);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(84, 18);
+            this.lblUnit.TabIndex = 11;
+            this.lblUnit.Text = "Jednostka";
+            // 
             // MedicineEditPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cbUnits);
+            this.Controls.Add(this.nudCount);
             this.Controls.Add(this.dgvTreatment);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblTreatment);
             this.Controls.Add(this.lblDetails);
-            this.Controls.Add(this.txtPatients);
-            this.Controls.Add(this.lblPatients);
+            this.Controls.Add(this.lblUnit);
+            this.Controls.Add(this.lblCount);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtId);
@@ -214,6 +251,7 @@
             this.Name = "MedicineEditPage";
             this.Size = new System.Drawing.Size(825, 530);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTreatment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -227,8 +265,7 @@
         private TextBox txtId;
         private Label lblName;
         private TextBox txtName;
-        private Label lblPatients;
-        private TextBox txtPatients;
+        private Label lblCount;
         private Label lblDetails;
         private TextBox txtDescription;
         private DataGridView dgvTreatment;
@@ -237,5 +274,8 @@
         private PageSetupDialog pageSetupDialog1;
         private PageSetupDialog pageSetupDialog2;
         private PageSetupDialog pageSetupDialog3;
+        private NumericUpDown nudCount;
+        private ComboBox cbUnits;
+        private Label lblUnit;
     }
 }
