@@ -182,9 +182,11 @@
             // 
             this.nudInterval.Location = new System.Drawing.Point(133, 240);
             this.nudInterval.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.nudInterval.Minimum = 1;
             this.nudInterval.Name = "nudInterval";
             this.nudInterval.Size = new System.Drawing.Size(61, 27);
             this.nudInterval.TabIndex = 15;
+            this.nudInterval.Value = 1;
             // 
             // nudCount
             // 

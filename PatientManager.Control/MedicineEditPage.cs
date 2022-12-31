@@ -44,11 +44,11 @@ namespace PatientManager.Control
                 txtId.Text = medicineModel.Id.ToString();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
         private void PopulateComboBoxes()
         {
             cbUnits.DataSource = Enum.GetValues(typeof(MedicineUnits));
         }
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (isEditMode)
             {
