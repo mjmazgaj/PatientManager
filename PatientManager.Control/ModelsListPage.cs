@@ -12,9 +12,8 @@ namespace PatientManager.Control
 
         private FileNameType _fileNameType;
 
-        public MedicineModel medicineModel;
-        public PatientModel patientModel;
-        public TreatmentModel treatmentModel;
+        private MedicineModel medicineModel;
+        private PatientModel patientModel;
 
         public int CurrentModelId = 0;
         public ModelsListPage()
@@ -48,7 +47,6 @@ namespace PatientManager.Control
 
             if (bindingSource1.DataSource != null)
             {
-                dgvModels.Columns["Id"].DisplayIndex = 0;
                 dgvModels.Columns["Description"].DisplayIndex = dgvModels.ColumnCount - 1;
 
                 
@@ -56,11 +54,14 @@ namespace PatientManager.Control
                 dgvModels.Columns["Description"].HeaderText = "Uwagi";
             }
 
-            foreach (var item in dgvModels.Columns)
+            foreach (DataGridViewTextBoxColumn column in dgvModels.Columns)
             {
-                ((DataGridViewTextBoxColumn)item).AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
 
+            dgvModels.Columns["Id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvModels.Columns["Id"].Width = 40;
+            dgvModels.Columns["Description"].MinimumWidth = dgvModels.Columns["Description"].Width - 10;
             dgvModels.Columns["Description"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
@@ -72,8 +73,15 @@ namespace PatientManager.Control
                 dgvModels.DataSource = bindingSource1.DataSource;
 
                 dgvModels.Columns["Name"].Visible = true;
+                dgvModels.Columns["FullName"].Visible = false;
+
+                dgvModels.Columns["Id"].DisplayIndex = 0;
                 dgvModels.Columns["Name"].DisplayIndex = 1;
+
                 dgvModels.Columns["Name"].HeaderText = "Nazwa";
+
+                dgvModels.Columns["Count"].HeaderText = "Ilość";
+                dgvModels.Columns["Unit"].HeaderText = "J";
             }
 
         }
@@ -86,6 +94,8 @@ namespace PatientManager.Control
                 
                 dgvModels.Columns["Name"].Visible = true;
                 
+
+                dgvModels.Columns["Id"].DisplayIndex = 0;
                 dgvModels.Columns["Name"].DisplayIndex = 1;
 
                 dgvModels.Columns["Name"].HeaderText = "Nazwa";
@@ -99,14 +109,25 @@ namespace PatientManager.Control
                 bindingSource1.DataSource = _treatmentData.GetAll();
                 dgvModels.DataSource = bindingSource1.DataSource;
 
+                dgvModels.Columns["Id"].DisplayIndex = 0;
+
                 dgvModels.Columns["Name"].Visible = false;
                 dgvModels.Columns["Patient"].Visible = false;
                 dgvModels.Columns["Medicine"].Visible = false;
 
-                dgvModels.Columns["DayInterval"].HeaderText = "Interwał";
-                dgvModels.Columns["Date"].HeaderText = "Kuracje";
-                dgvModels.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yyyy";
+                dgvModels.Columns["PatientName"].HeaderText = "Pacjent";
+                dgvModels.Columns["MedicineName"].HeaderText = "Lek";
+                dgvModels.Columns["DayInterval"].HeaderText = "Dni";
+                dgvModels.Columns["Count"].HeaderText = "Ilość";
+                dgvModels.Columns["Date"].HeaderText = "Start";
+                dgvModels.Columns["Date"].DefaultCellStyle.Format = "dd/MM/yy";
             }
+        }
+        private void SetUpTreatmentSummary()
+        {
+            var form = Application.OpenForms["MainForm"];
+            var userControl = (TreatmentsSummary)form.Controls.Find("treatmentsSummary1", true).FirstOrDefault();
+            userControl?.SetupSummary();
         }
         private void dgvModels_SelectionChanged(object sender, EventArgs e)
         {
@@ -135,6 +156,7 @@ namespace PatientManager.Control
         public void Reset(FileNameType fileName)
         {
             SetUpDataGridView(fileName);
+            SetUpTreatmentSummary();
         }
     }
 }
