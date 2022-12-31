@@ -74,6 +74,7 @@
             this.btnMedicines.Name = "btnMedicines";
             this.btnMedicines.Size = new System.Drawing.Size(114, 43);
             this.btnMedicines.TabIndex = 9;
+            this.btnMedicines.TabStop = false;
             this.btnMedicines.Text = "Leki";
             this.btnMedicines.UseVisualStyleBackColor = true;
             this.btnMedicines.Click += new System.EventHandler(this.btnMedicines_Click);
@@ -87,6 +88,7 @@
             this.btnPatients.Name = "btnPatients";
             this.btnPatients.Size = new System.Drawing.Size(114, 43);
             this.btnPatients.TabIndex = 9;
+            this.btnPatients.TabStop = false;
             this.btnPatients.Text = "Pacjenci";
             this.btnPatients.UseVisualStyleBackColor = true;
             this.btnPatients.Click += new System.EventHandler(this.btnPatients_Click);
@@ -94,12 +96,14 @@
             // btnAdd
             // 
             this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.Enabled = false;
             this.btnAdd.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.Location = new System.Drawing.Point(854, 12);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(114, 43);
             this.btnAdd.TabIndex = 9;
+            this.btnAdd.TabStop = false;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -107,12 +111,14 @@
             // btnEdit
             // 
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.Enabled = false;
             this.btnEdit.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnEdit.Location = new System.Drawing.Point(854, 63);
             this.btnEdit.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(114, 43);
             this.btnEdit.TabIndex = 9;
+            this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edytuj";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
@@ -120,12 +126,14 @@
             // btnDelete
             // 
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Enabled = false;
             this.btnDelete.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnDelete.Location = new System.Drawing.Point(854, 114);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(114, 43);
             this.btnDelete.TabIndex = 9;
+            this.btnDelete.TabStop = false;
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -139,6 +147,7 @@
             this.btnTreatment.Name = "btnTreatment";
             this.btnTreatment.Size = new System.Drawing.Size(114, 43);
             this.btnTreatment.TabIndex = 9;
+            this.btnTreatment.TabStop = false;
             this.btnTreatment.Text = "Kuracje";
             this.btnTreatment.UseVisualStyleBackColor = true;
             this.btnTreatment.Click += new System.EventHandler(this.btnTreatment_Click);
