@@ -104,12 +104,23 @@ namespace PatientManager.Data.Services
         {
             List<MedicineMonthDoses> monthDoses = new List<MedicineMonthDoses>();
 
-            GetAllMedicines()
-                .ForEach(item => GetAll()
-                .Where(x => x.Medicine.Id == item.Id)
-                .ToList()
-                .ForEach(x => monthDoses.Add(GetMedicineMonthDosesInMonth(x, month, year))));
+            var treatment = GetAll();
 
+            foreach (var item in treatment)
+            {
+                var monthDose = GetMedicineMonthDosesInMonth(item, month, year);
+
+                var existingmonthDose = monthDoses.FirstOrDefault(x => x.MedicineId == monthDose.MedicineId);
+
+                if (existingmonthDose == null)
+                    monthDoses.Add(monthDose);
+                else
+                {
+                    existingmonthDose.Dates.AddRange(monthDose.Dates);
+                    existingmonthDose.Doses += monthDose.Doses;
+                }
+            }
+            
             return monthDoses;
         }
 
